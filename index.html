@@ -1,1 +1,101 @@
-<!doctype html><title>Freelance Hiring Hub</title><h1>Freelance Hiring Hub</h1><p>GIT PIPELINE LIVE</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Freelance Hiring Hub — The Buyer Side of Freelance</title>
+<meta name="description" content="Research, discuss, compare and hire with more information. Freelance Hiring Hub is being built for the people writing the checks.">
+<style>
+:root{
+  --bg:#0d1713;
+  --panel:#14231d;
+  --text:#f4f1e8;
+  --muted:#a9b8ae;
+  --accent:#3fa36c;
+  --line:#263d32;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.wrap{max-width:1100px;margin:auto;padding:0 24px}
+nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:24px 0;border-bottom:1px solid var(--line)
+}
+.brand{font-weight:800;letter-spacing:-.02em}
+.badge{
+  border:1px solid var(--line);padding:8px 12px;border-radius:999px;
+  color:var(--muted);font-size:14px
+}
+.hero{padding:110px 0 80px}
+.eyebrow{
+  color:var(--accent);font-weight:800;text-transform:uppercase;
+  letter-spacing:.12em;font-size:13px
+}
+h1{
+  font-size:clamp(48px,8vw,92px);
+  line-height:.96;letter-spacing:-.055em;
+  max-width:900px;margin:20px 0 28px
+}
+.lead{
+  max-width:720px;font-size:22px;line-height:1.55;color:var(--muted)
+}
+.grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  padding-bottom:90px
+}
+.card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:18px;padding:26px
+}
+.card h2{margin-top:0;font-size:20px}
+.card p{color:var(--muted);line-height:1.6}
+footer{
+  border-top:1px solid var(--line);
+  padding:28px 0 40px;color:var(--muted);font-size:14px
+}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.hero{padding-top:72px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="brand">Freelance Hiring Hub</div>
+    <div class="badge">Under construction 🐸</div>
+  </nav>
+
+  <section class="hero">
+    <div class="eyebrow">The buyer side of freelance</div>
+    <h1>The table where hiring decisions get sharper.</h1>
+    <p class="lead">
+      Freelance Hiring Hub is being built for founders, operators, managers and buyers
+      who want better information before they hire. Research platforms. Compare costs.
+      Discuss contractors. Post opportunities. Learn what works — and what gets expensive fast.
+    </p>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h2>Research before you hire</h2>
+      <p>Platform comparisons, pricing intelligence, hiring guides, buyer checklists and practical project structure.</p>
+    </div>
+    <div class="card">
+      <h2>Talk shop with other buyers</h2>
+      <p>Real discussion around freelancers, agencies, scopes, rates, deadlines, disputes and execution.</p>
+    </div>
+    <div class="card">
+      <h2>Put opportunities on the board</h2>
+      <p>A focused bulletin board for serious freelance work — without turning the room into a spam bazaar.</p>
+    </div>
+  </section>
+
+  <footer>
+    Something is being built here. The frogs are wearing suits now.
+  </footer>
+</div>
+</body>
+</html>
