@@ -792,6 +792,43 @@ footer{
   }
 }
 
+
+/* LIBRARY HOMEPAGE LINKS */
+
+.story,
+.resource,
+.thread,
+.preview-box{
+  transition:transform .18s ease, opacity .18s ease, border-color .18s ease;
+}
+
+.story:hover,
+.resource:hover,
+.thread:hover{
+  transform:translateY(-2px);
+}
+
+.story:hover h2,
+.thread:hover h3{
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:4px;
+}
+
+.resource:hover{
+  border-top-color:#d06a73;
+}
+
+.preview-box:hover{
+  background:rgba(0,0,0,.28);
+}
+
+.primary,
+.secondary,
+.more{
+  display:inline-block;
+}
+
 </style>
 </head>
 
@@ -868,13 +905,13 @@ footer{
       </p>
 
       <div class="hero-actions">
-        <div class="primary">
+        <a class="primary" href="/guides/">
           Explore the Guides →
-        </div>
+        </a>
 
-        <div class="secondary">
-          Read the best threads
-        </div>
+        <a class="secondary" href="/resources/freelance-buyers-guide/">
+          Read the Buyer's Guide
+        </a>
       </div>
 
     </div>
@@ -903,49 +940,48 @@ footer{
   <div class="wrap">
 
     <div class="section-head">
-      <div class="kicker">Featured Knowledge</div>
+      <div class="kicker">Start With What You Need</div>
       <div class="rule"></div>
-      <div class="more">View Everything →</div>
+      <a class="more" href="/resources/freelance-buyers-guide/">Buyer’s Guide →</a>
     </div>
 
     <div class="featured">
 
-      <article class="story">
+      <a class="story" href="/hire/">
         <div class="visual"></div>
-        <div class="type">Hiring Process</div>
-        <h2>How to vet a freelancer before money moves</h2>
+        <div class="type">Find Talent</div>
+        <h2>Who should you hire?</h2>
         <p>
-          Questions, warning signs and practical checks that matter
-          before the project begins.
+          Browse freelance specialties and match the project to the right kind of operator.
         </p>
-      </article>
+      </a>
 
-      <article class="story">
+      <a class="story" href="/platforms/">
         <div class="visual"></div>
-        <div class="type">Deal Structure</div>
-        <h2>Milestones, deposits and scope control</h2>
+        <div class="type">Choose Where</div>
+        <h2>Where should you hire them?</h2>
         <p>
-          Structure the engagement so everybody knows what happens next.
+          Compare marketplaces, direct hiring and different ways to find freelance talent.
         </p>
-      </article>
+      </a>
 
-      <article class="story">
+      <a class="story" href="/costs/">
         <div class="visual"></div>
-        <div class="type">Risk & Cost</div>
-        <h2>The hidden cost of the cheapest freelancer</h2>
+        <div class="type">Understand Cost</div>
+        <h2>What should the work cost?</h2>
         <p>
-          Low rates can become expensive when incentives and accountability fail.
+          Learn what drives freelancer rates, platform fees and total project cost.
         </p>
-      </article>
+      </a>
 
-      <article class="story">
+      <a class="story" href="/safety/">
         <div class="visual"></div>
-        <div class="type">Buyer Experience</div>
-        <h2>What experienced buyers wish they knew sooner</h2>
+        <div class="type">Reduce Risk</div>
+        <h2>How do you hire safely?</h2>
         <p>
-          Lessons from hiring mistakes, recoveries and stronger second attempts.
+          Verify freelancers, structure payments and catch expensive warning signs early.
         </p>
-      </article>
+      </a>
 
     </div>
   </div>
@@ -956,80 +992,189 @@ footer{
   <div class="wrap">
 
     <div class="section-head">
-      <div class="kicker">Threads Worth Reading</div>
+      <div class="kicker">The Buyer Playbook</div>
       <div class="rule"></div>
-      <div class="more">All Threads →</div>
+      <a class="more" href="/guides/">All Guides →</a>
     </div>
 
     <div class="thread-intro">
-
       <h2>
-        Less noise. More knowledge worth keeping.
+        A freelance project is a chain of decisions.
       </h2>
 
       <p>
-        Serious discussion around freelancers, agencies, pricing,
-        contracts, scope, disputes and execution.
+        Find the person. Verify the evidence. Define the deal. Review the work.
+        Finish with the files, access and ownership you expected.
       </p>
-
     </div>
 
     <div class="thread-list">
 
-      <div class="thread">
+      <a class="thread" href="/guides/how-to-find-good-freelancers/">
         <div class="number">01</div>
 
         <div>
-          <h3>
-            What actually separates a $500 freelancer from a $5,000 one?
-          </h3>
-
+          <h3>Find the right candidates</h3>
           <p>
-            Skill, specialization, communication, positioning—or something else?
+            Marketplaces, referrals, professional networks and direct sourcing.
           </p>
         </div>
 
         <div class="meta">
-          Strategy / Discussion
+          Source / Shortlist
         </div>
-      </div>
+      </a>
 
-
-      <div class="thread">
+      <a class="thread" href="/safety/how-to-verify-a-freelancer/">
         <div class="number">02</div>
 
         <div>
-          <h3>
-            The project was delivered. The buyer still lost.
-          </h3>
-
+          <h3>Verify before you increase the risk</h3>
           <p>
-            Why weak acceptance criteria can ruin an otherwise valid agreement.
+            Portfolios, work history, interviews and evidence that actually matters.
           </p>
         </div>
 
         <div class="meta">
-          Case Study / Contracts
+          Verify / Vet
         </div>
-      </div>
+      </a>
 
-
-      <div class="thread">
+      <a class="thread" href="/templates/scope-of-work/">
         <div class="number">03</div>
 
         <div>
-          <h3>
-            Would you hire someone with no reviews but excellent work?
-          </h3>
-
+          <h3>Make the agreement visible</h3>
           <p>
-            Reputation, portfolios, references and what each signal actually tells you.
+            Define deliverables, exclusions, revisions, deadlines and responsibilities.
           </p>
         </div>
 
         <div class="meta">
-          Hiring / Reputation
+          Scope / Structure
         </div>
+      </a>
+
+      <a class="thread" href="/guides/how-to-structure-milestones/">
+        <div class="number">04</div>
+
+        <div>
+          <h3>Make progress prove itself</h3>
+          <p>
+            Build milestones around reviewable work instead of arbitrary payment dates.
+          </p>
+        </div>
+
+        <div class="meta">
+          Milestones / Payment
+        </div>
+      </a>
+
+      <a class="thread" href="/templates/project-handoff-checklist/">
+        <div class="number">05</div>
+
+        <div>
+          <h3>Finish without loose ends</h3>
+          <p>
+            Source files, credentials, documentation, licenses and final ownership.
+          </p>
+        </div>
+
+        <div class="meta">
+          Handoff / Close
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">Practical Library</div>
+      <div class="rule"></div>
+      <a class="more" href="/resources/">Explore Resources →</a>
+    </div>
+
+    <div class="resources">
+
+      <a class="resource" href="/guides/">
+        <span>01</span>
+        <h3>Hiring Guides</h3>
+        <p>
+          Step-by-step help for finding, interviewing, hiring and managing freelancers.
+        </p>
+      </a>
+
+      <a class="resource" href="/templates/">
+        <span>02</span>
+        <h3>Templates</h3>
+        <p>
+          Briefs, scopes, interview questions, milestone plans and handoff checklists.
+        </p>
+      </a>
+
+      <a class="resource" href="/safety/">
+        <span>03</span>
+        <h3>Hiring Safety</h3>
+        <p>
+          Verification, payment risk, fake portfolios, source files and intellectual property.
+        </p>
+      </a>
+
+      <a class="resource" href="/problems/">
+        <span>04</span>
+        <h3>Solve a Problem</h3>
+        <p>
+          Missed deadlines, bad work, scope creep, disappearing freelancers and disputes.
+        </p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="case">
+  <div class="wrap case-grid">
+
+    <div>
+      <div class="case-label">
+        Find the Right Specialist
+      </div>
+
+      <h2>
+        Start with the work. Then choose the freelancer.
+      </h2>
+
+      <p>
+        The Hub now covers major freelance specialties across design,
+        development, writing, marketing, video, operations, AI and data.
+      </p>
+    </div>
+
+    <div class="quote">
+      “A job title is only useful when it points to the work you actually need done.”
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <b>Design</b>
+        <small>Creative specialists</small>
+      </div>
+
+      <div class="stat">
+        <b>Dev</b>
+        <small>Technical specialists</small>
+      </div>
+
+      <div class="stat">
+        <b>Growth</b>
+        <small>Marketing specialists</small>
       </div>
 
     </div>
@@ -1042,96 +1187,50 @@ footer{
   <div class="wrap">
 
     <div class="section-head">
-      <div class="kicker">Tools & Research</div>
+      <div class="kicker">Popular Hiring Paths</div>
       <div class="rule"></div>
-      <div class="more">Explore Resources →</div>
+      <a class="more" href="/hire/">Browse All →</a>
     </div>
 
-    <div class="resources">
+    <div class="featured">
 
-      <div class="resource">
-        <span>□</span>
-        <h3>Marketplace Reviews</h3>
+      <a class="story" href="/hire/graphic-designers/">
+        <div class="visual"></div>
+        <div class="type">Design</div>
+        <h2>Hire Graphic Designers</h2>
         <p>
-          Detailed platform breakdowns built around what buyers actually need to know.
+          Define the deliverables, review relevant work and plan the final file handoff.
         </p>
-      </div>
+      </a>
 
-      <div class="resource">
-        <span>$</span>
-        <h3>Pricing Guides</h3>
+      <a class="story" href="/hire/web-developers/">
+        <div class="visual"></div>
+        <div class="type">Development</div>
+        <h2>Hire Web Developers</h2>
         <p>
-          Understand what skills cost and what pushes rates higher or lower.
+          Keep scope, repositories, hosting and technical ownership understandable.
         </p>
-      </div>
+      </a>
 
-      <div class="resource">
-        <span>✓</span>
-        <h3>Hiring Checklists</h3>
+      <a class="story" href="/hire/copywriters/">
+        <div class="visual"></div>
+        <div class="type">Writing</div>
+        <h2>Hire Copywriters</h2>
         <p>
-          Repeatable systems for screening, hiring and starting projects.
+          Hire around the commercial problem instead of treating copy as a word count.
         </p>
-      </div>
+      </a>
 
-      <div class="resource">
-        <span>◇</span>
-        <h3>Dispute Prevention</h3>
+      <a class="story" href="/hire/seo-specialists/">
+        <div class="visual"></div>
+        <div class="type">Marketing</div>
+        <h2>Hire SEO Specialists</h2>
         <p>
-          Reduce ambiguity before it turns into wasted time or lost money.
+          Define the search problem, the work being performed and what success means.
         </p>
-      </div>
+      </a>
 
     </div>
-
-  </div>
-</section>
-
-
-<section class="case">
-  <div class="wrap case-grid">
-
-    <div>
-
-      <div class="case-label">
-        Case Study
-      </div>
-
-      <h2>
-        The cheapest proposal became the most expensive option.
-      </h2>
-
-      <p>
-        A buyer chose the lowest quote, skipped milestones and discovered
-        halfway through the project that both sides had been working from
-        different assumptions.
-      </p>
-
-    </div>
-
-    <div class="quote">
-      “The problem wasn't hiring a freelancer. The problem was making
-      assumptions instead of defining the agreement.”
-    </div>
-
-    <div class="stats">
-
-      <div class="stat">
-        <b>$8,400</b>
-        <small>Additional cost</small>
-      </div>
-
-      <div class="stat">
-        <b>11</b>
-        <small>Weeks delayed</small>
-      </div>
-
-      <div class="stat">
-        <b>4</b>
-        <small>Preventable failures</small>
-      </div>
-
-    </div>
-
   </div>
 </section>
 
@@ -1141,21 +1240,21 @@ footer{
 
     <div>
       <div class="eyebrow" style="color:#e9a6ad">
-        Something useful is being built here.
+        Start wherever the project is now.
       </div>
 
       <h2>
-        Get sharper about hiring.
+        Make the next freelance decision better.
       </h2>
 
       <p>
-        Better information before money moves.
+        From first hire to final handoff—and the expensive problems in between.
       </p>
     </div>
 
-    <div class="preview-box">
-      Freelance Hiring Hub — Preview
-    </div>
+    <a class="preview-box" href="/resources/freelance-buyers-guide/">
+      Open the Freelance Buyer’s Guide →
+    </a>
 
   </div>
 </section>
