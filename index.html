@@ -3,99 +3,1082 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Freelance Hiring Hub — The Buyer Side of Freelance</title>
-<meta name="description" content="Research, discuss, compare and hire with more information. Freelance Hiring Hub is being built for the people writing the checks.">
+
+<title>Freelance Hiring Hub — Better Freelance Decisions</title>
+<meta
+  name="description"
+  content="Freelance Hiring Hub helps buyers research freelancers, compare platforms, structure better deals and learn from real hiring experience."
+>
+
 <style>
 :root{
-  --bg:#0d1713;
-  --panel:#14231d;
-  --text:#f4f1e8;
-  --muted:#a9b8ae;
-  --accent:#3fa36c;
-  --line:#263d32;
+  --black:#0c0c0d;
+  --black2:#151416;
+  --cream:#f3eee6;
+  --cream2:#e5ddd1;
+  --text:#171516;
+  --muted:#716b65;
+  --maroon:#6a151d;
+  --maroon2:#461015;
+  --mahogany:#301416;
+  --line:#c8beb2;
+  --darkline:#343033;
 }
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:var(--bg);
+  background:var(--cream);
   color:var(--text);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-.wrap{max-width:1100px;margin:auto;padding:0 24px}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.wrap{
+  width:min(1180px,calc(100% - 48px));
+  margin:auto;
+}
+
+
+/* HEADER */
+
+header{
+  background:var(--black);
+  color:#fff;
+  border-bottom:1px solid #282629;
+}
+
 nav{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:24px 0;border-bottom:1px solid var(--line)
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
 }
-.brand{font-weight:800;letter-spacing:-.02em}
-.badge{
-  border:1px solid var(--line);padding:8px 12px;border-radius:999px;
-  color:var(--muted);font-size:14px
+
+.brand{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:25px;
+  font-weight:700;
+  letter-spacing:-.03em;
 }
-.hero{padding:110px 0 80px}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  font-size:14px;
+  color:#d8d3cd;
+}
+
+.navlinks span{
+  cursor:default;
+}
+
+.start{
+  background:var(--maroon);
+  border:1px solid #8c3039;
+  padding:13px 20px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:14px;
+}
+
+.mobile-badge{
+  display:none;
+}
+
+
+/* HERO */
+
+.hero{
+  display:grid;
+  grid-template-columns:58% 42%;
+  min-height:610px;
+}
+
+.hero-copy{
+  padding:82px 65px 76px 0;
+}
+
 .eyebrow{
-  color:var(--accent);font-weight:800;text-transform:uppercase;
-  letter-spacing:.12em;font-size:13px
+  color:var(--maroon);
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  margin-bottom:22px;
 }
+
 h1{
-  font-size:clamp(48px,8vw,92px);
-  line-height:.96;letter-spacing:-.055em;
-  max-width:900px;margin:20px 0 28px
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(55px,7vw,91px);
+  line-height:.95;
+  letter-spacing:-.055em;
+  margin:0;
+  max-width:760px;
+  font-weight:700;
 }
+
+h1 em{
+  display:block;
+  color:var(--maroon);
+  font-style:normal;
+}
+
 .lead{
-  max-width:720px;font-size:22px;line-height:1.55;color:var(--muted)
+  max-width:680px;
+  margin:30px 0 0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:20px;
+  line-height:1.55;
+  color:#403a35;
 }
-.grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-  padding-bottom:90px
+
+.hero-actions{
+  display:flex;
+  gap:28px;
+  align-items:center;
+  margin-top:36px;
 }
-.card{
-  background:var(--panel);border:1px solid var(--line);
-  border-radius:18px;padding:26px
+
+.primary{
+  background:var(--maroon);
+  color:white;
+  padding:15px 23px;
+  border:1px solid var(--maroon);
+  font-family:Georgia,"Times New Roman",serif;
 }
-.card h2{margin-top:0;font-size:20px}
-.card p{color:var(--muted);line-height:1.6}
-footer{
+
+.secondary{
+  padding-bottom:4px;
+  border-bottom:1px solid #373232;
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.hero-art{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(145deg,rgba(111,16,27,.9),rgba(20,10,11,.98) 62%),
+    var(--black);
+}
+
+.hero-art:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 16%,
+      rgba(255,255,255,.05) 16% 17%,
+      transparent 17% 57%,
+      rgba(255,255,255,.05) 57% 58%,
+      transparent 58%
+    );
+}
+
+.desk{
+  position:absolute;
+  left:10%;
+  right:8%;
+  bottom:13%;
+  height:43%;
+  background:linear-gradient(145deg,#262326,#111 60%);
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 30px 70px rgba(0,0,0,.5);
+}
+
+.screen{
+  position:absolute;
+  width:52%;
+  height:78%;
+  left:15%;
+  top:-55%;
+  background:#080808;
+  border:1px solid #393639;
+  transform:skewY(-3deg);
+  box-shadow:0 18px 30px rgba(0,0,0,.35);
+}
+
+.book1,
+.book2{
+  position:absolute;
+  right:8%;
+  height:18px;
+  background:#191719;
+  border:1px solid #4d4749;
+}
+
+.book1{
+  width:27%;
+  top:24%;
+}
+
+.book2{
+  width:22%;
+  top:33%;
+}
+
+.art-copy{
+  position:absolute;
+  top:14%;
+  right:9%;
+  width:140px;
+  color:#eee6df;
+  border-left:1px solid #b5a6a6;
+  padding-left:18px;
+  font-size:10px;
+  line-height:2.1;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+
+
+/* SECTIONS */
+
+.section{
+  padding:70px 0;
+}
+
+.section-head{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:28px;
+}
+
+.kicker{
+  color:var(--maroon);
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  white-space:nowrap;
+}
+
+.rule{
+  flex:1;
+  height:1px;
+  background:var(--line);
+}
+
+.more{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  white-space:nowrap;
+}
+
+
+/* FEATURED */
+
+.featured{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
   border-top:1px solid var(--line);
-  padding:28px 0 40px;color:var(--muted);font-size:14px
+  border-bottom:1px solid var(--line);
 }
-@media(max-width:760px){.grid{grid-template-columns:1fr}.hero{padding-top:72px}}
+
+.story{
+  padding:24px;
+  border-right:1px solid var(--line);
+}
+
+.story:first-child{
+  padding-left:0;
+}
+
+.story:last-child{
+  border-right:0;
+  padding-right:0;
+}
+
+.visual{
+  height:150px;
+  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#151315,#721b24);
+}
+
+.story:nth-child(2) .visual{
+  background:linear-gradient(135deg,#d8cabe,#f5eee6);
+}
+
+.story:nth-child(3) .visual{
+  background:linear-gradient(135deg,#080808,#414042);
+}
+
+.story:nth-child(4) .visual{
+  background:linear-gradient(135deg,#e8dfd5,#501218);
+}
+
+.visual:after{
+  content:"";
+  position:absolute;
+  width:150%;
+  height:1px;
+  background:rgba(255,255,255,.35);
+  left:-25%;
+  top:55%;
+  transform:rotate(-27deg);
+}
+
+.story .type{
+  color:var(--maroon);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+
+.story h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:24px;
+  line-height:1.07;
+  margin:0 0 10px;
+}
+
+.story p{
+  color:var(--muted);
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.48;
+  font-size:14px;
+  margin:0;
+}
+
+
+/* THREADS */
+
+.threads{
+  background:var(--black);
+  color:white;
+}
+
+.threads .kicker{
+  color:#ce6871;
+}
+
+.threads .rule{
+  background:var(--darkline);
+}
+
+.thread-intro{
+  max-width:830px;
+  margin-bottom:34px;
+}
+
+.thread-intro h2{
+  margin:0 0 15px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(38px,5vw,59px);
+  line-height:1;
+  letter-spacing:-.035em;
+}
+
+.thread-intro p{
+  color:#b4ada7;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  line-height:1.55;
+}
+
+.thread-list{
+  border-top:1px solid var(--darkline);
+}
+
+.thread{
+  display:grid;
+  grid-template-columns:80px 1fr 160px;
+  gap:24px;
+  align-items:center;
+  padding:24px 0;
+  border-bottom:1px solid var(--darkline);
+}
+
+.number{
+  color:#a94c55;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:30px;
+}
+
+.thread h3{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:23px;
+  line-height:1.1;
+  margin:0 0 6px;
+}
+
+.thread p{
+  margin:0;
+  color:#9f9994;
+  font-size:13px;
+  line-height:1.5;
+}
+
+.meta{
+  text-align:right;
+  color:#817b77;
+  font-size:9px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+
+
+/* RESOURCE CARDS */
+
+.resources{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.resource{
+  min-height:220px;
+  background:var(--black2);
+  color:white;
+  border-top:4px solid var(--maroon);
+  padding:25px;
+}
+
+.resource:nth-child(odd){
+  background:var(--maroon2);
+}
+
+.resource span{
+  display:block;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:29px;
+  margin-bottom:45px;
+}
+
+.resource h3{
+  margin:0 0 9px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:23px;
+}
+
+.resource p{
+  margin:0;
+  color:#c9c1ba;
+  font-size:13px;
+  line-height:1.5;
+}
+
+
+/* CASE */
+
+.case{
+  background:#111;
+  color:white;
+  padding:68px 0;
+}
+
+.case-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr .7fr;
+  gap:45px;
+}
+
+.case-label{
+  color:#c95e68;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.case h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:43px;
+  line-height:1.02;
+  margin:0 0 15px;
+}
+
+.case p{
+  color:#aaa39d;
+  line-height:1.6;
+  margin:0;
+}
+
+.quote{
+  border-left:1px solid #414144;
+  padding-left:30px;
+  display:flex;
+  align-items:center;
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:italic;
+  font-size:21px;
+  line-height:1.45;
+  color:#ddd6d0;
+}
+
+.stats{
+  border-left:1px solid #414144;
+  padding-left:26px;
+}
+
+.stat{
+  margin-bottom:22px;
+}
+
+.stat b{
+  display:block;
+  color:#c44f5a;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:29px;
+}
+
+.stat small{
+  color:#8d8782;
+  font-size:8px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+
+/* BOTTOM */
+
+.bottom{
+  background:linear-gradient(90deg,var(--maroon2),var(--maroon));
+  color:white;
+  padding:48px 0;
+}
+
+.bottom-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.bottom h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:42px;
+  margin:0 0 10px;
+}
+
+.bottom p{
+  color:#e4d4d4;
+  margin:0;
+}
+
+.preview-box{
+  border:1px solid #b65760;
+  padding:17px 20px;
+  font-family:Georgia,"Times New Roman",serif;
+  background:rgba(0,0,0,.16);
+  text-align:center;
+}
+
+
+/* FOOTER */
+
+footer{
+  background:var(--black);
+  color:#8f8882;
+  padding:30px 0;
+  font-size:12px;
+}
+
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .wrap{
+    width:min(100% - 32px,1180px);
+  }
+
+  .navlinks,
+  .start{
+    display:none;
+  }
+
+  .mobile-badge{
+    display:block;
+    color:#a9a29b;
+    font-size:12px;
+    border:1px solid #383438;
+    padding:9px 12px;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-copy{
+    padding:62px 0 58px;
+  }
+
+  .hero-art{
+    min-height:360px;
+  }
+
+  .featured{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .story,
+  .story:first-child,
+  .story:last-child{
+    padding:22px;
+  }
+
+  .resources{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .case-grid,
+  .bottom-grid{
+    grid-template-columns:1fr;
+  }
+
+  .thread{
+    grid-template-columns:60px 1fr;
+  }
+
+  .meta{
+    display:none;
+  }
+}
+
+@media(max-width:560px){
+
+  .brand{
+    font-size:20px;
+  }
+
+  h1{
+    font-size:49px;
+  }
+
+  .lead{
+    font-size:18px;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .featured,
+  .resources{
+    grid-template-columns:1fr;
+  }
+
+  .story,
+  .story:first-child,
+  .story:last-child{
+    padding:25px 0;
+    border-right:0;
+  }
+
+  .hero-art{
+    min-height:310px;
+  }
+
+  .thread{
+    grid-template-columns:1fr;
+  }
+
+  .number{
+    font-size:18px;
+  }
+
+  .footer-row{
+    flex-direction:column;
+  }
+
+  .section{
+    padding:55px 0;
+  }
+}
+
 </style>
 </head>
+
 <body>
-<div class="wrap">
-  <nav>
-    <div class="brand">Freelance Hiring Hub</div>
-    <div class="badge">Under construction 🐸</div>
-  </nav>
 
-  <section class="hero">
-    <div class="eyebrow">The buyer side of freelance</div>
-    <h1>The table where hiring decisions get sharper.</h1>
-    <p class="lead">
-      Freelance Hiring Hub is being built for founders, operators, managers and buyers
-      who want better information before they hire. Research platforms. Compare costs.
-      Discuss contractors. Post opportunities. Learn what works — and what gets expensive fast.
-    </p>
-  </section>
+<header>
+  <div class="wrap">
+    <nav>
 
-  <section class="grid">
-    <div class="card">
-      <h2>Research before you hire</h2>
-      <p>Platform comparisons, pricing intelligence, hiring guides, buyer checklists and practical project structure.</p>
-    </div>
-    <div class="card">
-      <h2>Talk shop with other buyers</h2>
-      <p>Real discussion around freelancers, agencies, scopes, rates, deadlines, disputes and execution.</p>
-    </div>
-    <div class="card">
-      <h2>Put opportunities on the board</h2>
-      <p>A focused bulletin board for serious freelance work — without turning the room into a spam bazaar.</p>
-    </div>
-  </section>
+      <div class="brand">
+        Freelance Hiring Hub
+      </div>
 
-  <footer>
-    Something is being built here. The frogs are wearing suits now.
-  </footer>
-</div>
+      <div class="navlinks">
+        <span>Guides</span>
+        <span>Threads</span>
+        <span>Comparisons</span>
+        <span>Case Studies</span>
+      </div>
+
+      <div class="start">
+        Start Here →
+      </div>
+
+      <div class="mobile-badge">
+        Preview
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+
+<main>
+
+<section>
+  <div class="wrap hero">
+
+    <div class="hero-copy">
+
+      <div class="eyebrow">
+        Real knowledge. Safer hires. Better outcomes.
+      </div>
+
+      <h1>
+        Hire freelancers without learning every lesson the
+        <em>expensive way.</em>
+      </h1>
+
+      <p class="lead">
+        Practical guides, real buyer experience and deeper discussion
+        for people who want to hire smarter, structure stronger deals
+        and avoid expensive lessons.
+      </p>
+
+      <div class="hero-actions">
+        <div class="primary">
+          Explore the Guides →
+        </div>
+
+        <div class="secondary">
+          Read the best threads
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-art">
+
+      <div class="art-copy">
+        Better hires.<br>
+        Better structure.<br>
+        Fewer surprises.
+      </div>
+
+      <div class="desk">
+        <div class="screen"></div>
+        <div class="book1"></div>
+        <div class="book2"></div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">Featured Knowledge</div>
+      <div class="rule"></div>
+      <div class="more">View Everything →</div>
+    </div>
+
+    <div class="featured">
+
+      <article class="story">
+        <div class="visual"></div>
+        <div class="type">Hiring Process</div>
+        <h2>How to vet a freelancer before money moves</h2>
+        <p>
+          Questions, warning signs and practical checks that matter
+          before the project begins.
+        </p>
+      </article>
+
+      <article class="story">
+        <div class="visual"></div>
+        <div class="type">Deal Structure</div>
+        <h2>Milestones, deposits and scope control</h2>
+        <p>
+          Structure the engagement so everybody knows what happens next.
+        </p>
+      </article>
+
+      <article class="story">
+        <div class="visual"></div>
+        <div class="type">Risk & Cost</div>
+        <h2>The hidden cost of the cheapest freelancer</h2>
+        <p>
+          Low rates can become expensive when incentives and accountability fail.
+        </p>
+      </article>
+
+      <article class="story">
+        <div class="visual"></div>
+        <div class="type">Buyer Experience</div>
+        <h2>What experienced buyers wish they knew sooner</h2>
+        <p>
+          Lessons from hiring mistakes, recoveries and stronger second attempts.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section threads">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">Threads Worth Reading</div>
+      <div class="rule"></div>
+      <div class="more">All Threads →</div>
+    </div>
+
+    <div class="thread-intro">
+
+      <h2>
+        Less noise. More knowledge worth keeping.
+      </h2>
+
+      <p>
+        Serious discussion around freelancers, agencies, pricing,
+        contracts, scope, disputes and execution.
+      </p>
+
+    </div>
+
+    <div class="thread-list">
+
+      <div class="thread">
+        <div class="number">01</div>
+
+        <div>
+          <h3>
+            What actually separates a $500 freelancer from a $5,000 one?
+          </h3>
+
+          <p>
+            Skill, specialization, communication, positioning—or something else?
+          </p>
+        </div>
+
+        <div class="meta">
+          Strategy / Discussion
+        </div>
+      </div>
+
+
+      <div class="thread">
+        <div class="number">02</div>
+
+        <div>
+          <h3>
+            The project was delivered. The buyer still lost.
+          </h3>
+
+          <p>
+            Why weak acceptance criteria can ruin an otherwise valid agreement.
+          </p>
+        </div>
+
+        <div class="meta">
+          Case Study / Contracts
+        </div>
+      </div>
+
+
+      <div class="thread">
+        <div class="number">03</div>
+
+        <div>
+          <h3>
+            Would you hire someone with no reviews but excellent work?
+          </h3>
+
+          <p>
+            Reputation, portfolios, references and what each signal actually tells you.
+          </p>
+        </div>
+
+        <div class="meta">
+          Hiring / Reputation
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">Tools & Research</div>
+      <div class="rule"></div>
+      <div class="more">Explore Resources →</div>
+    </div>
+
+    <div class="resources">
+
+      <div class="resource">
+        <span>□</span>
+        <h3>Marketplace Reviews</h3>
+        <p>
+          Detailed platform breakdowns built around what buyers actually need to know.
+        </p>
+      </div>
+
+      <div class="resource">
+        <span>$</span>
+        <h3>Pricing Guides</h3>
+        <p>
+          Understand what skills cost and what pushes rates higher or lower.
+        </p>
+      </div>
+
+      <div class="resource">
+        <span>✓</span>
+        <h3>Hiring Checklists</h3>
+        <p>
+          Repeatable systems for screening, hiring and starting projects.
+        </p>
+      </div>
+
+      <div class="resource">
+        <span>◇</span>
+        <h3>Dispute Prevention</h3>
+        <p>
+          Reduce ambiguity before it turns into wasted time or lost money.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="case">
+  <div class="wrap case-grid">
+
+    <div>
+
+      <div class="case-label">
+        Case Study
+      </div>
+
+      <h2>
+        The cheapest proposal became the most expensive option.
+      </h2>
+
+      <p>
+        A buyer chose the lowest quote, skipped milestones and discovered
+        halfway through the project that both sides had been working from
+        different assumptions.
+      </p>
+
+    </div>
+
+    <div class="quote">
+      “The problem wasn't hiring a freelancer. The problem was making
+      assumptions instead of defining the agreement.”
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <b>$8,400</b>
+        <small>Additional cost</small>
+      </div>
+
+      <div class="stat">
+        <b>11</b>
+        <small>Weeks delayed</small>
+      </div>
+
+      <div class="stat">
+        <b>4</b>
+        <small>Preventable failures</small>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="bottom">
+  <div class="wrap bottom-grid">
+
+    <div>
+      <div class="eyebrow" style="color:#e9a6ad">
+        Something useful is being built here.
+      </div>
+
+      <h2>
+        Get sharper about hiring.
+      </h2>
+
+      <p>
+        Better information before money moves.
+      </p>
+    </div>
+
+    <div class="preview-box">
+      Freelance Hiring Hub — Preview
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<footer>
+  <div class="wrap footer-row">
+
+    <div>
+      © 2026 Freelance Hiring Hub
+    </div>
+
+    <div>
+      Better hires. Stronger businesses.
+    </div>
+
+  </div>
+</footer>
+
 </body>
 </html>
