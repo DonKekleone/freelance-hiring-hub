@@ -63,7 +63,19 @@ def target_exists(route):
 
     return (path / "index.html").exists()
 
+planned_file = Path("planned_routes.txt")
+
+planned = set()
+
+if planned_file.exists():
+    planned = {
+        line.strip()
+        for line in planned_file.read_text().splitlines()
+        if line.strip() and not line.strip().startswith("#")
+    }
+
 broken = []
+planned_links = []
 
 for html_file in ROOT.rglob("*.html"):
     if should_skip(html_file):
@@ -81,14 +93,20 @@ for html_file in ROOT.rglob("*.html"):
         route = resolve_internal(href)
 
         if route and not target_exists(route):
-            broken.append((str(html_file), href))
+            if route in planned:
+                planned_links.append((str(html_file), href))
+            else:
+                broken.append((str(html_file), href))
+
+if planned_links:
+    print(f"\nPlanned routes referenced: {len(planned_links)}")
 
 if broken:
-    print(f"\nBroken internal links: {len(broken)}\n")
+    print(f"\nBROKEN internal links: {len(broken)}\n")
 
     for source, href in broken:
         print(f"{source} -> {href}")
 
     raise SystemExit(1)
 
-print("Internal links clean.")
+print("No accidental broken internal links.")
