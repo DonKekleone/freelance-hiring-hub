@@ -749,3 +749,41 @@ footer{
     padding:26px;
   }
 }
+
+
+/* Reusable buyer template blocks */
+.template-box{
+  margin:24px 0;
+  border:1px solid var(--border, #d9dde3);
+  border-radius:14px;
+  overflow:hidden;
+  background:var(--card, #fff);
+}
+
+.template-box-header{
+  padding:12px 16px;
+  border-bottom:1px solid var(--border, #d9dde3);
+  font-weight:700;
+}
+
+.template-box pre{
+  margin:0;
+  padding:18px;
+  overflow-x:auto;
+  white-space:pre-wrap;
+  word-break:break-word;
+  font:inherit;
+  line-height:1.7;
+}
+
+.template-note{
+  margin:14px 0 24px;
+  font-size:.94rem;
+  opacity:.78;
+}
+
+@media (max-width:700px){
+  .template-box pre{
+    padding:15px;
+  }
+}
