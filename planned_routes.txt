@@ -1,5 +1,3 @@
-/compare/milestones-vs-upfront-payment/
-/costs/hidden-costs/
 /hire/affiliate-marketers/
 /hire/ai-automation-specialists/
 /hire/ai-developers/
