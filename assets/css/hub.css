@@ -666,6 +666,74 @@ footer{
   }
 }
 
+
+/* FLAGSHIP ARTICLE HERO ART */
+
+.article-hero.illustrated-article-hero{
+  padding:0;
+  background:var(--cream);
+}
+
+.illustrated-article-hero .article-hero-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+  align-items:stretch;
+  max-width:none;
+}
+
+.article-hero-copy{
+  align-self:center;
+  padding:72px 56px 58px 0;
+}
+
+.article-hero-media{
+  position:relative;
+  min-height:500px;
+  overflow:hidden;
+  background:var(--black2);
+  border-left:1px solid var(--line);
+}
+
+.article-hero-media img{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+@media(max-width:850px){
+  .illustrated-article-hero .article-hero-inner{
+    grid-template-columns:1fr;
+  }
+
+  .article-hero-copy{
+    padding:62px 0 58px;
+  }
+
+  .article-hero-media{
+    min-height:360px;
+    border-left:0;
+    border-top:1px solid var(--line);
+  }
+}
+
+@media(max-width:560px){
+  .article-hero.illustrated-article-hero{
+    padding:0;
+  }
+
+  .article-hero-copy{
+    padding:52px 0 46px;
+  }
+
+  .article-hero-media{
+    min-height:300px;
+  }
+}
+
 /* PROJECT BUDGET CALCULATOR */
 
 .calculator-shell{
