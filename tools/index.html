@@ -3,22 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Freelance Hiring Tools | Freelance Hiring Hub</title>
-<meta name="description" content="Planned calculators, checklists and utilities for freelance hiring, budgeting, vetting and project planning.">
+
+<title>Freelance Project Budget Calculator & Hiring Tools | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Estimate a freelance project budget using hours, rates, contingency, fixed costs and platform fees. Explore practical freelance hiring tools for buyers."
+>
+
 <link rel="canonical" href="https://freelancehiringhub.com/tools/">
-<meta property="og:title" content="Freelance Hiring Tools | Freelance Hiring Hub">
-<meta property="og:description" content="Planned calculators, checklists and utilities for freelance hiring, budgeting, vetting and project planning.">
+
+<meta
+  property="og:title"
+  content="Freelance Project Budget Calculator & Hiring Tools | Freelance Hiring Hub"
+>
+
+<meta
+  property="og:description"
+  content="Estimate freelance project costs and explore practical tools for budgeting, vetting and planning freelance work."
+>
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://freelancehiringhub.com/tools/">
 <meta name="twitter:card" content="summary">
+
 <link rel="stylesheet" href="/assets/css/hub.css">
 </head>
+
 <body>
 
 <header>
   <div class="wrap">
     <nav>
+
       <a class="brand" href="/">Freelance Hiring Hub</a>
+
       <div class="navlinks">
         <a href="/hire/">Hire</a>
         <a href="/platforms/">Platforms</a>
@@ -29,9 +48,20 @@
         <a href="/tools/">Tools</a>
         <a href="/resources/">More</a>
       </div>
+
       <a class="start" href="/guides/">Start Here →</a>
-      <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        Menu
+      </button>
+
     </nav>
+
     <div class="mobile-menu" id="mobile-menu">
       <a href="/hire/">Find a Freelancer</a>
       <a href="/platforms/">Choose a Platform</a>
@@ -44,6 +74,7 @@
       <a href="/tools/">Tools</a>
       <a href="/resources/">Resources</a>
     </div>
+
   </div>
 </header>
 
@@ -51,50 +82,313 @@
 
 <section class="page-hero">
   <div class="wrap page-hero-inner">
-    <div class="eyebrow">Utility belongs here</div>
-    <h1>Practical tools for better freelance decisions.</h1>
-    <p>Calculators, planners and checkers designed to make freelance hiring easier. This section is part of the Hub blueprint and will expand over time.</p>
-  </div>
-</section>
 
+    <div class="eyebrow">Put numbers behind the hiring decision</div>
 
-<section class="section">
-  <div class="wrap">
-    <div class="section-heading">
-      <h2>Planned tools</h2>
-      <p>These tools are deliberately on the roadmap. They are not live yet, but this is their permanent home.</p>
-    </div>
-    <div class="text-list">
-      <div class="future-item">Freelancer Cost Calculator<span class="future-tag">planned</span></div>
-      <div class="future-item">Project Budget Calculator<span class="future-tag">planned</span></div>
-      <div class="future-item">Hourly vs Fixed-Price Calculator<span class="future-tag">planned</span></div>
-      <div class="future-item">Platform Fee Calculator<span class="future-tag">planned</span></div>
-      <div class="future-item">Freelancer Rate Converter<span class="future-tag">planned</span></div>
-      <div class="future-item">Freelance Hiring Planner<span class="future-tag">planned</span></div>
-      <div class="future-item">Job Description Builder<span class="future-tag">planned</span></div>
-      <div class="future-item">Project Brief Builder<span class="future-tag">planned</span></div>
-      <div class="future-item">Milestone Planner<span class="future-tag">planned</span></div>
-      <div class="future-item">Freelancer Red Flag Checker<span class="future-tag">planned</span></div>
-      <div class="future-item">Project Risk Check<span class="future-tag">planned</span></div>
-      <div class="future-item">Freelancer Vetting Checklist<span class="future-tag">planned</span></div>
-    </div>
+    <h1>Freelance hiring tools built for buyers.</h1>
+
+    <p>
+      Estimate project budgets, plan for uncertainty and turn freelance
+      hiring decisions into numbers you can actually work with.
+    </p>
+
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
+
     <div class="section-heading">
-      <h2>Keep going</h2>
-      <p>The Hub is designed around the next question a buyer usually needs answered.</p>
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>Freelance Project Budget Calculator</h2>
+      </div>
+
+      <p>
+        Build a rough project budget from estimated hours, hourly rate,
+        contingency, fixed costs and optional platform or transaction fees.
+      </p>
     </div>
+
+    <div class="calculator-shell">
+
+      <div class="calculator-inputs">
+
+        <div class="calculator-field">
+          <label for="budget-hours">Estimated hours</label>
+          <input
+            id="budget-hours"
+            type="number"
+            min="0"
+            step="0.5"
+            value="40"
+            inputmode="decimal"
+          >
+        </div>
+
+        <div class="calculator-field">
+          <label for="budget-rate">Hourly rate ($)</label>
+          <input
+            id="budget-rate"
+            type="number"
+            min="0"
+            step="1"
+            value="50"
+            inputmode="decimal"
+          >
+        </div>
+
+        <div class="calculator-field">
+          <label for="budget-contingency">Contingency (%)</label>
+          <input
+            id="budget-contingency"
+            type="number"
+            min="0"
+            step="1"
+            value="10"
+            inputmode="decimal"
+          >
+          <small>
+            Optional reserve for reasonable uncertainty, changes or extra work.
+          </small>
+        </div>
+
+        <div class="calculator-field">
+          <label for="budget-fixed">Other fixed costs ($)</label>
+          <input
+            id="budget-fixed"
+            type="number"
+            min="0"
+            step="1"
+            value="0"
+            inputmode="decimal"
+          >
+          <small>
+            Software, assets, licenses, contractors or other known project costs.
+          </small>
+        </div>
+
+        <div class="calculator-field">
+          <label for="budget-fee">Platform / transaction fee (%)</label>
+          <input
+            id="budget-fee"
+            type="number"
+            min="0"
+            step="0.1"
+            value="0"
+            inputmode="decimal"
+          >
+          <small>
+            Enter the applicable fee if one exists. Leave at zero for direct hiring
+            or when no additional fee applies.
+          </small>
+        </div>
+
+      </div>
+
+      <div class="calculator-results" aria-live="polite">
+
+        <div class="calculator-results-label">Estimated budget</div>
+
+        <div class="calculator-total" id="budget-total">$2,200.00</div>
+
+        <div class="calculator-breakdown">
+
+          <div>
+            <span>Labor subtotal</span>
+            <strong id="budget-labor">$2,000.00</strong>
+          </div>
+
+          <div>
+            <span>Contingency</span>
+            <strong id="budget-contingency-result">$200.00</strong>
+          </div>
+
+          <div>
+            <span>Fixed costs</span>
+            <strong id="budget-fixed-result">$0.00</strong>
+          </div>
+
+          <div>
+            <span>Estimated fees</span>
+            <strong id="budget-fee-result">$0.00</strong>
+          </div>
+
+        </div>
+
+        <p class="calculator-note">
+          This is a planning estimate, not a market-rate recommendation.
+          Actual project costs and platform fees vary.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Use the estimate intelligently</div>
+        <h2>The total is only useful if the assumptions are useful.</h2>
+      </div>
+
+      <p>
+        A calculator can expose the financial shape of a project, but the
+        inputs still depend on scope, complexity and the kind of freelancer
+        required.
+      </p>
+    </div>
+
+    <h2>Estimate the hours from defined work</h2>
+
+    <p>
+      Start with deliverables and boundaries before guessing how long the
+      project will take. A vague project can make even a precise calculator
+      produce a weak estimate.
+    </p>
+
     <div class="text-list">
-      <a href="/costs/">Check current cost guides →</a>
-      <a href="/templates/">Use hiring templates →</a>
-      <a href="/safety/">Read safety guidance →</a>
-      <a href="/guides/">Browse hiring guides →</a>
-      <a href="/compare/">Compare platforms →</a>
-      <a href="/hire/">Find a freelancer →</a>
+      <a href="/guides/how-to-write-a-project-brief/">How to Write a Project Brief →</a>
+      <a href="/templates/project-brief/">Project Brief Template →</a>
+      <a href="/templates/scope-of-work/">Scope of Work Template →</a>
     </div>
+
+    <h2>Research the rate separately</h2>
+
+    <p>
+      Rates vary by specialty, experience, complexity and responsibility.
+      Use the calculator after you have a reasonable rate assumption rather
+      than treating its default values as market pricing.
+    </p>
+
+    <div class="text-list">
+      <a href="/costs/how-much-to-pay-a-freelancer/">How Much Should You Pay a Freelancer? →</a>
+      <a href="/costs/web-developer-rates/">Web Developer Rates →</a>
+      <a href="/costs/graphic-designer-rates/">Graphic Designer Rates →</a>
+      <a href="/costs/copywriter-rates/">Copywriter Rates →</a>
+      <a href="/costs/seo-freelancer-rates/">SEO Freelancer Rates →</a>
+      <a href="/costs/video-editor-rates/">Video Editor Rates →</a>
+    </div>
+
+    <h2>Choose the pricing structure</h2>
+
+    <p>
+      Hourly estimates are useful for modeling a project even when the final
+      agreement uses fixed pricing or milestones. The actual payment structure
+      should match how predictable and divisible the work is.
+    </p>
+
+    <div class="text-list">
+      <a href="/compare/hourly-vs-fixed-price/">Hourly vs Fixed Price →</a>
+      <a href="/compare/milestones-vs-upfront-payment/">Milestones vs Upfront Payment →</a>
+      <a href="/guides/how-to-structure-milestones/">How to Structure Freelance Milestones →</a>
+      <a href="/templates/milestone-plan/">Milestone Plan Template →</a>
+    </div>
+
+    <h2>Remember costs outside the quote</h2>
+
+    <p>
+      Platform fees, revision cycles, management time, licenses, delays and
+      replacement work can all increase the true cost of a freelance project.
+    </p>
+
+    <div class="text-list">
+      <a href="/costs/platform-fees/">Freelance Platform Fees →</a>
+      <a href="/costs/hidden-costs/">Hidden Costs of Hiring Freelancers →</a>
+      <a href="/problems/project-over-budget/">Freelance Project Over Budget →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Utility layer</div>
+        <h2>More buyer tools are coming.</h2>
+      </div>
+
+      <p>
+        The tools section will grow around recurring decisions that are easier
+        to solve with calculators, planners and structured checks than with
+        another article.
+      </p>
+    </div>
+
+    <div class="text-list">
+
+      <div class="future-item">
+        Platform Fee Calculator
+        <span class="future-tag">upcoming</span>
+      </div>
+
+      <div class="future-item">
+        Hourly vs Fixed-Price Calculator
+        <span class="future-tag">upcoming</span>
+      </div>
+
+      <div class="future-item">
+        Freelancer Rate Converter
+        <span class="future-tag">upcoming</span>
+      </div>
+
+      <div class="future-item">
+        Freelance Hiring Planner
+        <span class="future-tag">upcoming</span>
+      </div>
+
+      <div class="future-item">
+        Project Brief Builder
+        <span class="future-tag">upcoming</span>
+      </div>
+
+      <div class="future-item">
+        Milestone Planner
+        <span class="future-tag">upcoming</span>
+      </div>
+
+      <div class="future-item">
+        Freelancer Red Flag Checker
+        <span class="future-tag">upcoming</span>
+      </div>
+
+      <div class="future-item">
+        Project Risk Check
+        <span class="future-tag">upcoming</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>Continue the hiring decision</h2>
+
+      <p>
+        Use the rest of the Hub to turn the budget into a better-defined hire.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/costs/">Research Freelancer Costs →</a>
+      <a href="/hire/">Find a Freelancer by Specialty →</a>
+      <a href="/platforms/">Choose Where to Hire →</a>
+      <a href="/compare/">Compare Hiring Options →</a>
+      <a href="/safety/">Reduce Hiring Risk →</a>
+      <a href="/templates/">Use Hiring Templates →</a>
+    </div>
+
   </div>
 </section>
 
