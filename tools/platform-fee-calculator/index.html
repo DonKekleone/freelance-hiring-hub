@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Freelance Platform Fee Calculator | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Calculate freelance platform fees, buyer cost and freelancer take-home pay. Compare marketplace fees with direct-hire project economics."
+>
+
+<link rel="canonical" href="https://freelancehiringhub.com/tools/platform-fee-calculator/">
+
+<meta property="og:title" content="Freelance Platform Fee Calculator | Freelance Hiring Hub">
+<meta
+  property="og:description"
+  content="See how freelance platform fees change buyer cost, freelancer earnings and total project economics."
+>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freelancehiringhub.com/tools/platform-fee-calculator/">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="stylesheet" href="/assets/css/hub.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance Platform Fee Calculator",
+  "url": "https://freelancehiringhub.com/tools/platform-fee-calculator/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Freelance Hiring Hub",
+    "url": "https://freelancehiringhub.com/"
+  }
+}
+</script>
+
+<style>
+.fee-tool{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  border:1px solid var(--border,#cfc6ba);
+  background:var(--cream,#f3eee6);
+}
+
+.fee-inputs{
+  display:grid;
+}
+
+.fee-field{
+  padding:25px 28px;
+  border-bottom:1px solid var(--border,#cfc6ba);
+}
+
+.fee-field:last-child{
+  border-bottom:0;
+}
+
+.fee-field label{
+  display:block;
+  margin:0 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:700;
+  font-size:1.35rem;
+}
+
+.fee-field input,
+.fee-field select{
+  width:100%;
+  padding:16px 18px;
+  border:1px solid #c9c2b8;
+  background:#fff;
+  color:#171516;
+  font:inherit;
+  font-size:1.1rem;
+}
+
+.fee-field small{
+  display:block;
+  margin-top:10px;
+  color:var(--muted,#716b65);
+  line-height:1.55;
+}
+
+.fee-results{
+  background:#0c0c0d;
+  color:#fff;
+  padding:30px;
+}
+
+.fee-results .eyebrow{
+  color:#c8beb8;
+}
+
+.fee-primary{
+  margin:12px 0 26px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.5rem,7vw,4.6rem);
+  line-height:1;
+}
+
+.fee-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:18px 0;
+  border-top:1px solid #343033;
+}
+
+.fee-row span:first-child{
+  color:#cfc8c2;
+}
+
+.fee-row strong{
+  text-align:right;
+}
+
+.compare-table{
+  margin-top:32px;
+  border:1px solid #cfc6ba;
+  overflow:hidden;
+}
+
+.compare-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:12px;
+  padding:15px 18px;
+  border-top:1px solid #cfc6ba;
+}
+
+.compare-row:first-child{
+  border-top:0;
+  font-weight:800;
+  background:#e9e1d6;
+}
+
+.compare-row span:nth-child(2),
+.compare-row span:nth-child(3){
+  text-align:right;
+}
+
+.direct-box{
+  margin-top:34px;
+  padding:26px;
+  background:#171516;
+  color:#fff;
+  border-top:5px solid #6a151d;
+}
+
+.direct-box h3{
+  margin:5px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.8rem;
+}
+
+.direct-box p{
+  color:#d1cac5;
+  line-height:1.7;
+}
+
+.direct-box a{
+  display:inline-block;
+  margin-top:6px;
+  padding:13px 18px;
+  background:#6a151d;
+  color:#fff;
+  font-weight:800;
+}
+
+@media(max-width:760px){
+  .fee-tool{
+    grid-template-columns:1fr;
+  }
+
+  .fee-field{
+    padding:22px 20px;
+  }
+
+  .fee-results{
+    padding:26px 20px;
+  }
+
+  .compare-row{
+    grid-template-columns:1fr .8fr .8fr;
+    font-size:.9rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+        <img
+          class="brand-logo"
+          src="/assets/images/freelance-hiring-hub-logo.png"
+          alt=""
+          width="46"
+          height="46"
+        >
+        <span>Freelance Hiring Hub</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/hire/">Hire</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="/compare/">Compare</a>
+        <a href="/costs/">Costs</a>
+        <a href="/safety/">Safety</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/">Tools</a>
+        <a href="/resources/">More</a>
+      </div>
+
+      <a class="start" href="/guides/">Start Here →</a>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        Menu
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/hire/">Find a Freelancer</a>
+      <a href="/platforms/">Choose a Platform</a>
+      <a href="/compare/">Compare Platforms</a>
+      <a href="/costs/">Check Costs</a>
+      <a href="/safety/">Hire Safely</a>
+      <a href="/problems/">Solve a Problem</a>
+      <a href="/guides/">Guides</a>
+      <a href="/templates/">Templates</a>
+      <a href="/tools/">Tools</a>
+      <a href="/resources/">Resources</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+
+    <div class="eyebrow">See what the fee actually changes</div>
+
+    <h1>Freelance Platform Fee Calculator</h1>
+
+    <p>
+      Calculate platform fees, buyer cost and freelancer take-home pay before
+      deciding where and how to structure the project.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>Calculate the real transaction.</h2>
+      </div>
+
+      <p>
+        Enter the project value and fee structure. This calculator shows where
+        the money goes depending on who absorbs the platform fee.
+      </p>
+    </div>
+
+    <div class="fee-tool">
+
+      <div class="fee-inputs">
+
+        <div class="fee-field">
+          <label for="project-amount">Project amount ($)</label>
+          <input
+            id="project-amount"
+            type="number"
+            min="0"
+            step="50"
+            value="2000"
+            inputmode="decimal"
+          >
+        </div>
+
+        <div class="fee-field">
+          <label for="fee-percent">Platform fee (%)</label>
+          <input
+            id="fee-percent"
+            type="number"
+            min="0"
+            step="0.1"
+            value="10"
+            inputmode="decimal"
+          >
+          <small>
+            Enter the fee percentage you want to model. Platform pricing can
+            change, so verify current marketplace terms before hiring.
+          </small>
+        </div>
+
+        <div class="fee-field">
+          <label for="fee-side">Who absorbs the fee?</label>
+          <select id="fee-side">
+            <option value="freelancer" selected>Freelancer</option>
+            <option value="buyer">Buyer</option>
+            <option value="split">Split equally</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="fee-results">
+
+        <div class="eyebrow">Transaction summary</div>
+
+        <div class="fee-primary" id="fee-total">$200.00 fee</div>
+
+        <div class="fee-row">
+          <span>Buyer pays</span>
+          <strong id="buyer-total">$2,000.00</strong>
+        </div>
+
+        <div class="fee-row">
+          <span>Freelancer receives</span>
+          <strong id="freelancer-net">$1,800.00</strong>
+        </div>
+
+        <div class="fee-row">
+          <span>Platform fee</span>
+          <strong id="fee-amount">$200.00</strong>
+        </div>
+
+        <div class="fee-row">
+          <span>Effective fee rate</span>
+          <strong id="effective-rate">10.0%</strong>
+        </div>
+
+        <div class="fee-row">
+          <span>Direct-hire difference</span>
+          <strong id="direct-difference">$200.00</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="compare-table">
+      <div class="compare-row">
+        <span>Modeled fee</span>
+        <span>Buyer pays</span>
+        <span>Freelancer nets</span>
+      </div>
+
+      <div class="compare-row">
+        <span>0%</span>
+        <span id="compare-buyer-0">$2,000</span>
+        <span id="compare-net-0">$2,000</span>
+      </div>
+
+      <div class="compare-row">
+        <span>5%</span>
+        <span id="compare-buyer-5">$2,000</span>
+        <span id="compare-net-5">$1,900</span>
+      </div>
+
+      <div class="compare-row">
+        <span>10%</span>
+        <span id="compare-buyer-10">$2,000</span>
+        <span id="compare-net-10">$1,800</span>
+      </div>
+
+      <div class="compare-row">
+        <span>20%</span>
+        <span id="compare-buyer-20">$2,000</span>
+        <span id="compare-net-20">$1,600</span>
+      </div>
+    </div>
+
+    <div class="direct-box">
+      <div class="eyebrow">Direct hire changes the equation</div>
+
+      <h3>Removing marketplace fees does not remove project risk.</h3>
+
+      <p>
+        Direct hiring can reduce platform costs, but buyers and freelancers still
+        need clear scope, milestones, payment rules and a way to manage counterparty risk.
+        Trustless Network is built around structured freelance agreements and XRP escrow.
+      </p>
+
+      <a
+        href="https://trustlessnetwork.app/"
+        target="_blank"
+        rel="noopener"
+      >
+        Explore Trustless Network →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Compare before you choose</div>
+        <h2>Fees are only one part of platform economics.</h2>
+      </div>
+
+      <p>
+        Also compare freelancer quality, buyer protections, communication,
+        payment structure and how much flexibility you need outside the marketplace.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/costs/platform-fees/">Freelance Platform Fees →</a>
+      <a href="/platforms/">Compare Freelance Platforms →</a>
+      <a href="/compare/marketplace-vs-direct-hire/">Marketplace vs Direct Hire →</a>
+      <a href="/compare/upwork-vs-fiverr/">Upwork vs Fiverr →</a>
+      <a href="/costs/hidden-costs/">Hidden Costs of Hiring Freelancers →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>Keep running the numbers.</h2>
+
+      <p>
+        Use the rest of the tool library to price the work and structure the deal.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/tools/">Project Budget Calculator →</a>
+      <a href="/tools/freelancer-rate-converter/">Freelancer Rate Converter →</a>
+      <a href="/tools/milestone-planner/">Milestone Payment Planner →</a>
+      <a href="/costs/">Freelancer Cost Guides →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>Freelance Hiring Hub</div>
+    <div>Better freelance decisions.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/hub.js"></script>
+
+<script>
+(function(){
+
+  const projectAmount = document.getElementById("project-amount");
+  const feePercent = document.getElementById("fee-percent");
+  const feeSide = document.getElementById("fee-side");
+
+  const feeTotal = document.getElementById("fee-total");
+  const buyerTotal = document.getElementById("buyer-total");
+  const freelancerNet = document.getElementById("freelancer-net");
+  const feeAmount = document.getElementById("fee-amount");
+  const effectiveRate = document.getElementById("effective-rate");
+  const directDifference = document.getElementById("direct-difference");
+
+  const money = new Intl.NumberFormat("en-US", {
+    style:"currency",
+    currency:"USD",
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
+  });
+
+  function num(el){
+    const x = parseFloat(el.value);
+    return Number.isFinite(x) && x >= 0 ? x : 0;
+  }
+
+  function calc(amount, percent, side){
+
+    const fee = amount * (percent / 100);
+
+    let buyer = amount;
+    let freelancer = amount;
+
+    if(side === "freelancer"){
+      freelancer = amount - fee;
+    }
+
+    if(side === "buyer"){
+      buyer = amount + fee;
+    }
+
+    if(side === "split"){
+      buyer = amount + (fee / 2);
+      freelancer = amount - (fee / 2);
+    }
+
+    return {
+      fee,
+      buyer,
+      freelancer
+    };
+  }
+
+  function updateComparison(amount, side){
+
+    [0,5,10,20].forEach(percent => {
+
+      const result = calc(amount, percent, side);
+
+      document.getElementById("compare-buyer-" + percent)
+        .textContent = money.format(result.buyer);
+
+      document.getElementById("compare-net-" + percent)
+        .textContent = money.format(result.freelancer);
+
+    });
+
+  }
+
+  function update(){
+
+    const amount = num(projectAmount);
+    const percent = num(feePercent);
+    const side = feeSide.value;
+
+    const result = calc(amount, percent, side);
+
+    feeTotal.textContent = money.format(result.fee) + " fee";
+    buyerTotal.textContent = money.format(result.buyer);
+    freelancerNet.textContent = money.format(result.freelancer);
+    feeAmount.textContent = money.format(result.fee);
+    effectiveRate.textContent = percent.toFixed(1) + "%";
+
+    let difference = 0;
+
+    if(side === "buyer"){
+      difference = result.buyer - amount;
+    }
+    else if(side === "freelancer"){
+      difference = amount - result.freelancer;
+    }
+    else{
+      difference = result.fee;
+    }
+
+    directDifference.textContent = money.format(difference);
+
+    updateComparison(amount, side);
+  }
+
+  [projectAmount,feePercent,feeSide]
+    .forEach(el => el.addEventListener("input", update));
+
+  update();
+
+})();
+</script>
+
+</body>
+</html>
