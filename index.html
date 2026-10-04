@@ -5,6 +5,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="canonical" href="https://freelancehiringhub.com/">
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:title" content="Freelance Hiring Hub | Guides, Platforms, Costs & Buyer Tools">
+<meta property="og:url" content="https://freelancehiringhub.com/">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Freelance Hiring Hub",
+  "alternateName": "FreelanceHiringHub",
+  "url": "https://freelancehiringhub.com/"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Freelance Hiring Hub",
+  "url": "https://freelancehiringhub.com/",
+  "logo": "https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png"
+}
+</script>
 
 <title>Freelance Hiring Hub | Guides, Platforms, Costs & Buyer Tools</title>
 <meta
@@ -70,10 +98,21 @@ nav{
 }
 
 .brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
   font-family:Georgia,"Times New Roman",serif;
   font-size:25px;
   font-weight:700;
   letter-spacing:-.03em;
+}
+
+.brand-logo{
+  width:46px;
+  height:46px;
+  display:block;
+  object-fit:contain;
+  flex:0 0 auto;
 }
 
 .navlinks{
@@ -798,9 +837,16 @@ footer{
   <div class="wrap">
     <nav>
 
-      <a class="brand" href="/">
-        Freelance Hiring Hub
-      </a>
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+          <img
+            class="brand-logo"
+            src="/assets/images/freelance-hiring-hub-logo.png"
+            alt=""
+            width="46"
+            height="46"
+          >
+          <span>Freelance Hiring Hub</span>
+        </a>
 
       <div class="navlinks">
         <a href="/hire/">Hire</a>
