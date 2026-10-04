@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Freelance Project Brief Builder | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Build a clear freelance project brief with goals, deliverables, deadlines, revisions, budget, references and handoff requirements."
+>
+
+<link rel="canonical" href="https://freelancehiringhub.com/tools/project-brief-builder/">
+
+<meta property="og:title" content="Freelance Project Brief Builder | Freelance Hiring Hub">
+<meta property="og:description" content="Turn a rough freelance project idea into a structured, copyable project brief.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freelancehiringhub.com/tools/project-brief-builder/">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="stylesheet" href="/assets/css/hub.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Freelance Project Brief Builder",
+  "url":"https://freelancehiringhub.com/tools/project-brief-builder/",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "isAccessibleForFree":true,
+  "publisher":{
+    "@type":"Organization",
+    "name":"Freelance Hiring Hub",
+    "url":"https://freelancehiringhub.com/"
+  }
+}
+</script>
+
+<style>
+.brief-tool{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  border:1px solid var(--border,#cfc6ba);
+}
+
+.brief-inputs{
+  background:var(--cream,#f3eee6);
+}
+
+.brief-field{
+  padding:24px 28px;
+  border-bottom:1px solid #d4cbc0;
+}
+
+.brief-field:last-child{
+  border-bottom:0;
+}
+
+.brief-field label{
+  display:block;
+  margin-bottom:10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:700;
+  font-size:1.2rem;
+}
+
+.brief-field input,
+.brief-field textarea,
+.brief-field select{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid #c9c2b8;
+  background:#fff;
+  color:#171516;
+  font:inherit;
+}
+
+.brief-field textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.brief-field small{
+  display:block;
+  margin-top:8px;
+  color:var(--muted,#716b65);
+  line-height:1.5;
+}
+
+.brief-output{
+  background:#0c0c0d;
+  color:#fff;
+  padding:30px;
+}
+
+.brief-output .eyebrow{
+  color:#c8beb8;
+}
+
+.brief-preview{
+  margin-top:18px;
+  padding:22px;
+  background:#171516;
+  border:1px solid #343033;
+  white-space:pre-wrap;
+  line-height:1.7;
+  min-height:520px;
+}
+
+.copy-brief{
+  width:100%;
+  margin-top:20px;
+  padding:15px 18px;
+  border:0;
+  background:#eee8df;
+  color:#171516;
+  font:inherit;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.bridge-box{
+  margin-top:34px;
+  padding:26px;
+  background:#171516;
+  color:#fff;
+  border-top:5px solid #6a151d;
+}
+
+.bridge-box h3{
+  margin:5px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.8rem;
+}
+
+.bridge-box p{
+  color:#d1cac5;
+  line-height:1.7;
+}
+
+.bridge-box a{
+  display:inline-block;
+  margin-top:6px;
+  padding:13px 18px;
+  background:#6a151d;
+  color:#fff;
+  font-weight:800;
+}
+
+@media(max-width:760px){
+  .brief-tool{
+    grid-template-columns:1fr;
+  }
+
+  .brief-field,
+  .brief-output{
+    padding:22px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+        <img
+          class="brand-logo"
+          src="/assets/images/freelance-hiring-hub-logo.png"
+          alt=""
+          width="46"
+          height="46"
+        >
+        <span>Freelance Hiring Hub</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/hire/">Hire</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="/compare/">Compare</a>
+        <a href="/costs/">Costs</a>
+        <a href="/safety/">Safety</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/">Tools</a>
+        <a href="/resources/">More</a>
+      </div>
+
+      <a class="start" href="/guides/">Start Here →</a>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >Menu</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/hire/">Find a Freelancer</a>
+      <a href="/platforms/">Choose a Platform</a>
+      <a href="/compare/">Compare Platforms</a>
+      <a href="/costs/">Check Costs</a>
+      <a href="/safety/">Hire Safely</a>
+      <a href="/problems/">Solve a Problem</a>
+      <a href="/guides/">Guides</a>
+      <a href="/templates/">Templates</a>
+      <a href="/tools/">Tools</a>
+      <a href="/resources/">Resources</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+
+    <div class="eyebrow">Turn a rough idea into a usable brief</div>
+
+    <h1>Freelance Project Brief Builder</h1>
+
+    <p>
+      Define the project before you start collecting quotes, negotiating scope
+      or sending money.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>Build the brief.</h2>
+      </div>
+
+      <p>
+        Fill in what you know. The preview updates automatically into a
+        structured brief you can copy and send to a freelancer.
+      </p>
+    </div>
+
+    <div class="brief-tool">
+
+      <div class="brief-inputs">
+
+        <div class="brief-field">
+          <label for="project-title">Project title</label>
+          <input id="project-title" type="text" value="Website redesign">
+        </div>
+
+        <div class="brief-field">
+          <label for="project-type">Project type</label>
+          <select id="project-type">
+            <option>Design</option>
+            <option>Development</option>
+            <option>Writing</option>
+            <option>Marketing</option>
+            <option>Video / Audio</option>
+            <option>Business Support</option>
+            <option>AI / Data</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="brief-field">
+          <label for="goal">Primary goal</label>
+          <textarea id="goal">Create a clearer, faster website that improves trust and makes the main call to action easier to understand.</textarea>
+        </div>
+
+        <div class="brief-field">
+          <label for="deliverables">Required deliverables</label>
+          <textarea id="deliverables">Homepage redesign
+Responsive mobile layout
+Reusable page components
+Final source files</textarea>
+          <small>One deliverable per line works well.</small>
+        </div>
+
+        <div class="brief-field">
+          <label for="deadline">Target deadline</label>
+          <input id="deadline" type="text" value="Within 3 weeks of project start">
+        </div>
+
+        <div class="brief-field">
+          <label for="budget">Budget or rate range</label>
+          <input id="budget" type="text" value="$2,000–$3,000">
+        </div>
+
+        <div class="brief-field">
+          <label for="revisions">Revision allowance</label>
+          <input id="revisions" type="text" value="Up to 2 revision rounds">
+        </div>
+
+        <div class="brief-field">
+          <label for="references">References / examples</label>
+          <textarea id="references">Include links, screenshots or examples of the style and quality level you expect.</textarea>
+        </div>
+
+        <div class="brief-field">
+          <label for="handoff">Final handoff requirements</label>
+          <textarea id="handoff">Final files, source files, credentials or access required to continue using the work without depending on the freelancer.</textarea>
+        </div>
+
+        <div class="brief-field">
+          <label for="notes">Additional constraints</label>
+          <textarea id="notes">List anything that should not change, technical requirements, excluded work or dependencies.</textarea>
+        </div>
+
+      </div>
+
+      <div class="brief-output">
+
+        <div class="eyebrow">Generated project brief</div>
+
+        <div class="brief-preview" id="brief-preview"></div>
+
+        <button class="copy-brief" id="copy-brief" type="button">
+          Copy project brief
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="bridge-box">
+      <div class="eyebrow">Next step</div>
+
+      <h3>A good brief should become the foundation of the agreement.</h3>
+
+      <p>
+        Once deliverables, deadlines, revisions and handoff are defined, turn
+        them into milestones and payment conditions instead of relying on vague expectations.
+      </p>
+
+      <a href="/tools/milestone-planner/">
+        Build the milestone plan →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>Build the rest of the project structure.</h2>
+    </div>
+
+    <div class="text-list">
+      <a href="/guides/how-to-write-a-project-brief/">How to Write a Project Brief →</a>
+      <a href="/templates/project-brief/">Project Brief Template →</a>
+      <a href="/templates/scope-of-work/">Scope of Work Template →</a>
+      <a href="/tools/project-risk-check/">Project Risk Check →</a>
+      <a href="/tools/milestone-planner/">Milestone Planner →</a>
+      <a href="/tools/">Project Budget Calculator →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>Freelance Hiring Hub</div>
+    <div>Better freelance decisions.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/hub.js"></script>
+
+<script>
+(function(){
+
+  const fields = {
+    title: document.getElementById("project-title"),
+    type: document.getElementById("project-type"),
+    goal: document.getElementById("goal"),
+    deliverables: document.getElementById("deliverables"),
+    deadline: document.getElementById("deadline"),
+    budget: document.getElementById("budget"),
+    revisions: document.getElementById("revisions"),
+    references: document.getElementById("references"),
+    handoff: document.getElementById("handoff"),
+    notes: document.getElementById("notes")
+  };
+
+  const preview = document.getElementById("brief-preview");
+  const copy = document.getElementById("copy-brief");
+
+  function clean(v){
+    return (v || "").trim();
+  }
+
+  function section(label, value){
+    const v = clean(value);
+    return v ? label + "\n" + v + "\n\n" : "";
+  }
+
+  function build(){
+
+    const text =
+      clean(fields.title.value) + "\n" +
+      (clean(fields.type.value) ? "Project type: " + clean(fields.type.value) + "\n\n" : "\n") +
+
+      section("PROJECT GOAL", fields.goal.value) +
+      section("DELIVERABLES", fields.deliverables.value) +
+      section("DEADLINE", fields.deadline.value) +
+      section("BUDGET / RATE RANGE", fields.budget.value) +
+      section("REVISION ALLOWANCE", fields.revisions.value) +
+      section("REFERENCES / EXAMPLES", fields.references.value) +
+      section("FINAL HANDOFF", fields.handoff.value) +
+      section("ADDITIONAL CONSTRAINTS", fields.notes.value) +
+
+      "Before work begins, confirm the final scope, payment structure, review windows and acceptance conditions in writing.";
+
+    preview.textContent = text;
+    copy.dataset.copyText = text;
+  }
+
+  Object.values(fields).forEach(el => {
+    el.addEventListener("input", build);
+  });
+
+  copy.addEventListener("click", async function(){
+
+    try{
+      await navigator.clipboard.writeText(copy.dataset.copyText || "");
+      copy.textContent = "Copied ✓";
+
+      setTimeout(() => {
+        copy.textContent = "Copy project brief";
+      }, 1800);
+
+    } catch(e){
+      copy.textContent = "Copy unavailable";
+    }
+
+  });
+
+  build();
+
+})();
+</script>
+
+</body>
+</html>
