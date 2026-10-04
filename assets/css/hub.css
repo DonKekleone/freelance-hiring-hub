@@ -1071,26 +1071,3 @@ footer{
   }
 }
 
-
-/* CATEGORY HERO ART */
-
-.page-hero-art{
-  margin-top:28px;
-  overflow:hidden;
-  border:1px solid var(--border,#cfc6ba);
-  background:#171516;
-}
-
-.page-hero-art img{
-  display:block;
-  width:100%;
-  height:auto;
-  aspect-ratio:3 / 2;
-  object-fit:cover;
-}
-
-@media(max-width:700px){
-  .page-hero-art{
-    margin-top:22px;
-  }
-}
