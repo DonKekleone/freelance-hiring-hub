@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Freelance Milestone Payment Planner | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Plan freelance milestone payments by project value, milestone count and payment structure. Generate staged payment amounts for clearer freelance agreements."
+>
+
+<link rel="canonical" href="https://freelancehiringhub.com/tools/milestone-planner/">
+
+<meta property="og:title" content="Freelance Milestone Payment Planner | Freelance Hiring Hub">
+<meta
+  property="og:description"
+  content="Turn a freelance project budget into a practical staged milestone payment plan."
+>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freelancehiringhub.com/tools/milestone-planner/">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="stylesheet" href="/assets/css/hub.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelance Milestone Payment Planner",
+  "url": "https://freelancehiringhub.com/tools/milestone-planner/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Freelance Hiring Hub",
+    "url": "https://freelancehiringhub.com/"
+  }
+}
+</script>
+
+<style>
+.milestone-tool{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  border:1px solid var(--border,#cfc6ba);
+  background:var(--cream,#f3eee6);
+}
+
+.milestone-inputs{
+  display:grid;
+}
+
+.milestone-field{
+  padding:25px 28px;
+  border-bottom:1px solid var(--border,#cfc6ba);
+}
+
+.milestone-field:last-child{
+  border-bottom:0;
+}
+
+.milestone-field label{
+  display:block;
+  margin:0 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:700;
+  font-size:1.35rem;
+}
+
+.milestone-field input,
+.milestone-field select{
+  width:100%;
+  padding:16px 18px;
+  border:1px solid #c9c2b8;
+  background:#fff;
+  color:#171516;
+  font:inherit;
+  font-size:1.1rem;
+}
+
+.milestone-field small{
+  display:block;
+  margin-top:10px;
+  color:var(--muted,#716b65);
+  line-height:1.55;
+}
+
+.milestone-results{
+  background:#0c0c0d;
+  color:#fff;
+  padding:30px;
+}
+
+.milestone-results .eyebrow{
+  color:#c8beb8;
+}
+
+.project-total{
+  margin:12px 0 26px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.5rem,7vw,4.5rem);
+  line-height:1;
+}
+
+.plan-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:18px;
+  padding:18px 0;
+  border-top:1px solid #343033;
+}
+
+.plan-row-title{
+  font-weight:700;
+}
+
+.plan-row-note{
+  display:block;
+  margin-top:5px;
+  color:#aaa3a0;
+  font-size:.9rem;
+  line-height:1.45;
+}
+
+.plan-row-money{
+  text-align:right;
+}
+
+.plan-row-money strong{
+  display:block;
+  font-size:1.1rem;
+}
+
+.plan-row-money small{
+  color:#aaa3a0;
+}
+
+.plan-summary{
+  margin-top:26px;
+  padding-top:24px;
+  border-top:2px solid #6a151d;
+  color:#d5ceca;
+  line-height:1.65;
+}
+
+.copy-plan{
+  margin-top:22px;
+  width:100%;
+  padding:15px 18px;
+  border:1px solid #eee8df;
+  background:#eee8df;
+  color:#171516;
+  font:inherit;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.copy-plan:hover{
+  opacity:.88;
+}
+
+.trustless-box{
+  margin-top:34px;
+  padding:26px;
+  background:#171516;
+  color:#fff;
+  border-top:5px solid #6a151d;
+}
+
+.trustless-box h3{
+  margin:5px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.8rem;
+}
+
+.trustless-box p{
+  color:#d1cac5;
+  line-height:1.7;
+}
+
+.trustless-box a{
+  display:inline-block;
+  margin-top:6px;
+  padding:13px 18px;
+  background:#6a151d;
+  color:#fff;
+  font-weight:800;
+}
+
+@media(max-width:760px){
+  .milestone-tool{
+    grid-template-columns:1fr;
+  }
+
+  .milestone-field{
+    padding:22px 20px;
+  }
+
+  .milestone-results{
+    padding:26px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+        <img
+          class="brand-logo"
+          src="/assets/images/freelance-hiring-hub-logo.png"
+          alt=""
+          width="46"
+          height="46"
+        >
+        <span>Freelance Hiring Hub</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/hire/">Hire</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="/compare/">Compare</a>
+        <a href="/costs/">Costs</a>
+        <a href="/safety/">Safety</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/">Tools</a>
+        <a href="/resources/">More</a>
+      </div>
+
+      <a class="start" href="/guides/">Start Here →</a>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        Menu
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/hire/">Find a Freelancer</a>
+      <a href="/platforms/">Choose a Platform</a>
+      <a href="/compare/">Compare Platforms</a>
+      <a href="/costs/">Check Costs</a>
+      <a href="/safety/">Hire Safely</a>
+      <a href="/problems/">Solve a Problem</a>
+      <a href="/guides/">Guides</a>
+      <a href="/templates/">Templates</a>
+      <a href="/tools/">Tools</a>
+      <a href="/resources/">Resources</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+
+    <div class="eyebrow">Turn one payment into a project structure</div>
+
+    <h1>Freelance Milestone Payment Planner</h1>
+
+    <p>
+      Break a project budget into staged payments so money follows progress,
+      deliverables and final handoff instead of one vague promise.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>Build the payment structure.</h2>
+      </div>
+
+      <p>
+        Choose the project value, number of stages and how aggressively you
+        want payments distributed through the project.
+      </p>
+    </div>
+
+    <div class="milestone-tool">
+
+      <div class="milestone-inputs">
+
+        <div class="milestone-field">
+          <label for="project-value">Total project value ($)</label>
+          <input
+            id="project-value"
+            type="number"
+            min="0"
+            step="50"
+            value="3000"
+            inputmode="decimal"
+          >
+        </div>
+
+        <div class="milestone-field">
+          <label for="milestone-count">Number of milestones</label>
+          <select id="milestone-count">
+            <option value="2">2 milestones</option>
+            <option value="3">3 milestones</option>
+            <option value="4" selected>4 milestones</option>
+            <option value="5">5 milestones</option>
+            <option value="6">6 milestones</option>
+          </select>
+        </div>
+
+        <div class="milestone-field">
+          <label for="payment-style">Payment structure</label>
+          <select id="payment-style">
+            <option value="equal">Equal payments</option>
+            <option value="balanced" selected>Risk-balanced</option>
+            <option value="front">Front-loaded</option>
+            <option value="back">Back-loaded</option>
+          </select>
+
+          <small>
+            Risk-balanced keeps early payments smaller while reserving meaningful
+            value for later delivery and final handoff.
+          </small>
+        </div>
+
+        <div class="milestone-field">
+          <label for="revision-stage">Include revision stage?</label>
+          <select id="revision-stage">
+            <option value="yes" selected>Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <small>
+            Useful when approval and revision work should be separated from
+            first delivery.
+          </small>
+        </div>
+
+      </div>
+
+      <div class="milestone-results">
+
+        <div class="eyebrow">Suggested payment plan</div>
+
+        <div class="project-total" id="project-total">$3,000.00</div>
+
+        <div id="milestone-output"></div>
+
+        <div class="plan-summary" id="plan-summary"></div>
+
+        <button class="copy-plan" id="copy-plan" type="button">
+          Copy milestone plan
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="trustless-box">
+      <div class="eyebrow">From plan to enforcement</div>
+
+      <h3>Writing milestones is one thing. Enforcing the agreement is another.</h3>
+
+      <p>
+        Trustless Network uses structured freelance contracts and XRP escrow
+        so payment conditions can be tied to defined project rules rather than
+        relying only on promises between strangers.
+      </p>
+
+      <a
+        href="https://trustlessnetwork.app/"
+        target="_blank"
+        rel="noopener"
+      >
+        Explore Trustless Network →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Structure before payment</div>
+        <h2>A milestone needs a definition, not just a percentage.</h2>
+      </div>
+
+      <p>
+        Tie each stage to something observable: a draft, working feature,
+        approved revision, source-file delivery or final handoff.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/guides/how-to-structure-milestones/">How to Structure Freelance Milestones →</a>
+      <a href="/templates/milestone-plan/">Milestone Plan Template →</a>
+      <a href="/templates/scope-of-work/">Scope of Work Template →</a>
+      <a href="/compare/milestones-vs-upfront-payment/">Milestones vs Upfront Payment →</a>
+      <a href="/safety/safe-milestone-payments/">Safe Milestone Payments →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>Keep planning.</h2>
+
+      <p>
+        Price the project first, then structure the payment schedule around
+        actual work and deliverables.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/tools/">Freelance Project Budget Calculator →</a>
+      <a href="/tools/freelancer-rate-converter/">Freelancer Rate Converter →</a>
+      <a href="/costs/">Research Freelancer Costs →</a>
+      <a href="/hire/">Find a Freelancer →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>Freelance Hiring Hub</div>
+    <div>Better freelance decisions.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/hub.js"></script>
+
+<script>
+(function(){
+
+  const projectValue = document.getElementById("project-value");
+  const milestoneCount = document.getElementById("milestone-count");
+  const paymentStyle = document.getElementById("payment-style");
+  const revisionStage = document.getElementById("revision-stage");
+
+  const totalOut = document.getElementById("project-total");
+  const output = document.getElementById("milestone-output");
+  const summary = document.getElementById("plan-summary");
+  const copyButton = document.getElementById("copy-plan");
+
+  const money = new Intl.NumberFormat("en-US", {
+    style:"currency",
+    currency:"USD",
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
+  });
+
+  function getValue(){
+    const n = parseFloat(projectValue.value);
+    return Number.isFinite(n) && n >= 0 ? n : 0;
+  }
+
+  function weights(count, style){
+
+    if(style === "equal"){
+      return Array(count).fill(1 / count);
+    }
+
+    if(style === "front"){
+      const arr = [];
+      for(let i = 0; i < count; i++){
+        arr.push(count - i);
+      }
+      const total = arr.reduce((a,b) => a+b, 0);
+      return arr.map(x => x / total);
+    }
+
+    if(style === "back"){
+      const arr = [];
+      for(let i = 1; i <= count; i++){
+        arr.push(i);
+      }
+      const total = arr.reduce((a,b) => a+b, 0);
+      return arr.map(x => x / total);
+    }
+
+    /* risk-balanced */
+    const presets = {
+      2:[0.40,0.60],
+      3:[0.25,0.35,0.40],
+      4:[0.20,0.25,0.30,0.25],
+      5:[0.15,0.20,0.20,0.25,0.20],
+      6:[0.10,0.15,0.20,0.20,0.20,0.15]
+    };
+
+    return presets[count] || Array(count).fill(1 / count);
+  }
+
+  function labels(count, revisions){
+
+    if(count === 2){
+      return revisions
+        ? ["Initial work / first delivery", "Revision approval + final handoff"]
+        : ["Initial delivery", "Final approval + handoff"];
+    }
+
+    const result = [];
+
+    for(let i = 0; i < count; i++){
+
+      if(i === 0){
+        result.push("Kickoff / first defined deliverable");
+      }
+      else if(i === count - 1){
+        result.push("Final approval + handoff");
+      }
+      else if(revisions && i === count - 2){
+        result.push("Revision-complete delivery");
+      }
+      else{
+        result.push("Milestone " + (i + 1) + " deliverable");
+      }
+
+    }
+
+    return result;
+  }
+
+  function build(){
+
+    const value = getValue();
+    const count = parseInt(milestoneCount.value, 10);
+    const style = paymentStyle.value;
+    const revisions = revisionStage.value === "yes";
+
+    const shares = weights(count, style);
+    const names = labels(count, revisions);
+
+    totalOut.textContent = money.format(value);
+
+    let running = 0;
+    let html = "";
+    let copyText =
+      "Freelance milestone plan\n" +
+      "Project value: " + money.format(value) + "\n\n";
+
+    shares.forEach((share, index) => {
+
+      let amount;
+
+      if(index === shares.length - 1){
+        amount = value - running;
+      }
+      else{
+        amount = Math.round(value * share * 100) / 100;
+        running += amount;
+      }
+
+      const pct = share * 100;
+
+      html += `
+        <div class="plan-row">
+          <div>
+            <div class="plan-row-title">
+              ${index + 1}. ${names[index]}
+            </div>
+            <span class="plan-row-note">
+              Define the acceptance condition before funding this stage.
+            </span>
+          </div>
+
+          <div class="plan-row-money">
+            <strong>${money.format(amount)}</strong>
+            <small>${pct.toFixed(0)}%</small>
+          </div>
+        </div>
+      `;
+
+      copyText +=
+        (index + 1) + ". " +
+        names[index] + " — " +
+        money.format(amount) + " (" +
+        pct.toFixed(0) + "%)\n";
+    });
+
+    output.innerHTML = html;
+
+    const styleNames = {
+      equal:"equal-payment",
+      balanced:"risk-balanced",
+      front:"front-loaded",
+      back:"back-loaded"
+    };
+
+    summary.textContent =
+      "This is a " +
+      styleNames[style] +
+      " planning model. Replace generic stage names with concrete deliverables, review windows and acceptance conditions before using it in an agreement.";
+
+    copyButton.dataset.copyText = copyText;
+  }
+
+  copyButton.addEventListener("click", async function(){
+
+    const text = copyButton.dataset.copyText || "";
+
+    try{
+      await navigator.clipboard.writeText(text);
+      copyButton.textContent = "Copied ✓";
+
+      setTimeout(() => {
+        copyButton.textContent = "Copy milestone plan";
+      }, 1800);
+
+    } catch(e) {
+      copyButton.textContent = "Copy unavailable";
+    }
+
+  });
+
+  [
+    projectValue,
+    milestoneCount,
+    paymentStyle,
+    revisionStage
+  ].forEach(el => el.addEventListener("input", build));
+
+  build();
+
+})();
+</script>
+
+</body>
+</html>
