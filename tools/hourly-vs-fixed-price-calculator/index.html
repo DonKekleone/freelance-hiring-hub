@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Hourly vs Fixed-Price Freelance Calculator | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Compare hourly and fixed-price freelance project costs using estimated hours, scope uncertainty, revision risk and a fixed quote."
+>
+
+<link rel="canonical" href="https://freelancehiringhub.com/tools/hourly-vs-fixed-price-calculator/">
+
+<meta property="og:title" content="Hourly vs Fixed-Price Freelance Calculator | Freelance Hiring Hub">
+<meta property="og:description" content="Compare hourly and fixed-price freelance pricing using realistic project assumptions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freelancehiringhub.com/tools/hourly-vs-fixed-price-calculator/">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="stylesheet" href="/assets/css/hub.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Hourly vs Fixed-Price Freelance Calculator",
+  "url":"https://freelancehiringhub.com/tools/hourly-vs-fixed-price-calculator/",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "isAccessibleForFree":true,
+  "publisher":{
+    "@type":"Organization",
+    "name":"Freelance Hiring Hub",
+    "url":"https://freelancehiringhub.com/"
+  }
+}
+</script>
+
+<style>
+.compare-tool{
+  display:grid;
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  border:1px solid var(--border,#cfc6ba);
+}
+
+.compare-inputs{
+  background:var(--cream,#f3eee6);
+}
+
+.compare-field{
+  padding:24px 28px;
+  border-bottom:1px solid #d4cbc0;
+}
+
+.compare-field:last-child{
+  border-bottom:0;
+}
+
+.compare-field label{
+  display:block;
+  margin-bottom:10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.25rem;
+  font-weight:700;
+}
+
+.compare-field input,
+.compare-field select{
+  width:100%;
+  padding:15px 16px;
+  border:1px solid #c9c2b8;
+  background:#fff;
+  font:inherit;
+  color:#171516;
+}
+
+.compare-field small{
+  display:block;
+  margin-top:8px;
+  color:var(--muted,#716b65);
+  line-height:1.5;
+}
+
+.compare-results{
+  background:#0c0c0d;
+  color:#fff;
+  padding:30px;
+}
+
+.compare-results .eyebrow{
+  color:#c8beb8;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:#343033;
+  margin-top:18px;
+}
+
+.result-card{
+  background:#171516;
+  padding:22px;
+}
+
+.result-card small{
+  display:block;
+  color:#aaa3a0;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:8px;
+}
+
+.result-card strong{
+  display:block;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:2rem;
+}
+
+.recommendation{
+  margin-top:26px;
+  padding-top:24px;
+  border-top:2px solid #6a151d;
+}
+
+.recommendation h3{
+  margin:0 0 10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.6rem;
+}
+
+.recommendation p{
+  color:#d4ceca;
+  line-height:1.7;
+}
+
+.scenario-table{
+  margin-top:30px;
+  border:1px solid #cfc6ba;
+}
+
+.scenario-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+  padding:15px 18px;
+  border-top:1px solid #cfc6ba;
+}
+
+.scenario-row:first-child{
+  border-top:0;
+  background:#e9e1d6;
+  font-weight:800;
+}
+
+.scenario-row span:nth-child(2),
+.scenario-row span:nth-child(3){
+  text-align:right;
+}
+
+.structure-box{
+  margin-top:34px;
+  padding:26px;
+  background:#171516;
+  color:#fff;
+  border-top:5px solid #6a151d;
+}
+
+.structure-box h3{
+  margin:5px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.8rem;
+}
+
+.structure-box p{
+  color:#d1cac5;
+  line-height:1.7;
+}
+
+.structure-box a{
+  display:inline-block;
+  margin-top:6px;
+  padding:13px 18px;
+  background:#6a151d;
+  color:#fff;
+  font-weight:800;
+}
+
+@media(max-width:760px){
+  .compare-tool{
+    grid-template-columns:1fr;
+  }
+
+  .compare-field,
+  .compare-results{
+    padding:22px 20px;
+  }
+
+  .result-grid{
+    grid-template-columns:1fr;
+  }
+
+  .scenario-row{
+    font-size:.9rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+        <img
+          class="brand-logo"
+          src="/assets/images/freelance-hiring-hub-logo.png"
+          alt=""
+          width="46"
+          height="46"
+        >
+        <span>Freelance Hiring Hub</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/hire/">Hire</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="/compare/">Compare</a>
+        <a href="/costs/">Costs</a>
+        <a href="/safety/">Safety</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/">Tools</a>
+        <a href="/resources/">More</a>
+      </div>
+
+      <a class="start" href="/guides/">Start Here →</a>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >Menu</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/hire/">Find a Freelancer</a>
+      <a href="/platforms/">Choose a Platform</a>
+      <a href="/compare/">Compare Platforms</a>
+      <a href="/costs/">Check Costs</a>
+      <a href="/safety/">Hire Safely</a>
+      <a href="/problems/">Solve a Problem</a>
+      <a href="/guides/">Guides</a>
+      <a href="/templates/">Templates</a>
+      <a href="/tools/">Tools</a>
+      <a href="/resources/">Resources</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+
+    <div class="eyebrow">Compare pricing models before signing</div>
+
+    <h1>Hourly vs Fixed-Price Freelance Calculator</h1>
+
+    <p>
+      See how scope uncertainty, extra hours and revision risk can change which
+      pricing model makes more sense for your project.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>Compare the two deals.</h2>
+      </div>
+
+      <p>
+        Model the hourly project honestly, then compare it against the fixed quote
+        you actually received.
+      </p>
+    </div>
+
+    <div class="compare-tool">
+
+      <div class="compare-inputs">
+
+        <div class="compare-field">
+          <label for="hourly-rate">Hourly rate ($)</label>
+          <input id="hourly-rate" type="number" min="0" step="1" value="60">
+        </div>
+
+        <div class="compare-field">
+          <label for="estimated-hours">Estimated hours</label>
+          <input id="estimated-hours" type="number" min="0" step="1" value="40">
+        </div>
+
+        <div class="compare-field">
+          <label for="uncertainty">Scope uncertainty</label>
+          <select id="uncertainty">
+            <option value="0">Low — scope is very clear</option>
+            <option value="10" selected>Moderate — some uncertainty</option>
+            <option value="25">High — scope may expand</option>
+            <option value="40">Very high — discovery-heavy project</option>
+          </select>
+          <small>
+            Adds a modeled buffer to the hourly estimate.
+          </small>
+        </div>
+
+        <div class="compare-field">
+          <label for="revision-risk">Revision risk</label>
+          <select id="revision-risk">
+            <option value="0">Low</option>
+            <option value="5" selected>Moderate</option>
+            <option value="15">High</option>
+            <option value="25">Very high</option>
+          </select>
+        </div>
+
+        <div class="compare-field">
+          <label for="fixed-quote">Fixed-price quote ($)</label>
+          <input id="fixed-quote" type="number" min="0" step="50" value="2800">
+        </div>
+
+      </div>
+
+      <div class="compare-results">
+
+        <div class="eyebrow">Modeled comparison</div>
+
+        <div class="result-grid">
+
+          <div class="result-card">
+            <small>Base hourly estimate</small>
+            <strong id="hourly-base">$2,400.00</strong>
+          </div>
+
+          <div class="result-card">
+            <small>Risk-adjusted hourly</small>
+            <strong id="hourly-adjusted">$2,760.00</strong>
+          </div>
+
+          <div class="result-card">
+            <small>Fixed quote</small>
+            <strong id="fixed-total">$2,800.00</strong>
+          </div>
+
+          <div class="result-card">
+            <small>Modeled difference</small>
+            <strong id="difference">$40.00</strong>
+          </div>
+
+        </div>
+
+        <div class="recommendation">
+          <h3 id="recommendation-title">Very close decision</h3>
+          <p id="recommendation-copy"></p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="scenario-table">
+
+      <div class="scenario-row">
+        <span>Scenario</span>
+        <span>Hourly total</span>
+        <span>vs fixed</span>
+      </div>
+
+      <div class="scenario-row">
+        <span>Estimate holds</span>
+        <span id="scenario-base">$2,400</span>
+        <span id="scenario-base-diff">-$400</span>
+      </div>
+
+      <div class="scenario-row">
+        <span>+10% hours</span>
+        <span id="scenario-10">$2,640</span>
+        <span id="scenario-10-diff">-$160</span>
+      </div>
+
+      <div class="scenario-row">
+        <span>+25% hours</span>
+        <span id="scenario-25">$3,000</span>
+        <span id="scenario-25-diff">+$200</span>
+      </div>
+
+      <div class="scenario-row">
+        <span>+50% hours</span>
+        <span id="scenario-50">$3,600</span>
+        <span id="scenario-50-diff">+$800</span>
+      </div>
+
+    </div>
+
+    <div class="structure-box">
+      <div class="eyebrow">Pricing model is not the whole agreement</div>
+
+      <h3>Whichever model you choose, define what triggers payment.</h3>
+
+      <p>
+        Hourly pricing needs time controls. Fixed-price work needs scope controls.
+        Both benefit from clear milestones, acceptance criteria and handoff rules.
+      </p>
+
+      <a href="/tools/milestone-planner/">
+        Build a milestone plan →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>When hourly usually makes more sense</h2>
+    </div>
+
+    <p>
+      Hourly pricing tends to fit projects where requirements are still changing,
+      discovery is part of the work, or the buyer wants flexibility to redirect effort.
+    </p>
+
+    <div class="text-list">
+      <a href="/compare/hourly-vs-fixed-price/">Hourly vs Fixed Price Guide →</a>
+      <a href="/costs/how-much-to-pay-a-freelancer/">How Much Should You Pay a Freelancer? →</a>
+      <a href="/tools/freelancer-rate-converter/">Freelancer Rate Converter →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>When fixed-price usually makes more sense</h2>
+    </div>
+
+    <p>
+      Fixed pricing tends to work best when deliverables are specific, acceptance
+      criteria are clear and revisions can be bounded before work begins.
+    </p>
+
+    <div class="text-list">
+      <a href="/tools/project-brief-builder/">Project Brief Builder →</a>
+      <a href="/templates/scope-of-work/">Scope of Work Template →</a>
+      <a href="/tools/project-risk-check/">Project Risk Check →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>Freelance Hiring Hub</div>
+    <div>Better freelance decisions.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/hub.js"></script>
+
+<script>
+(function(){
+
+  const hourlyRate = document.getElementById("hourly-rate");
+  const estimatedHours = document.getElementById("estimated-hours");
+  const uncertainty = document.getElementById("uncertainty");
+  const revisionRisk = document.getElementById("revision-risk");
+  const fixedQuote = document.getElementById("fixed-quote");
+
+  const money = new Intl.NumberFormat("en-US", {
+    style:"currency",
+    currency:"USD",
+    minimumFractionDigits:2,
+    maximumFractionDigits:2
+  });
+
+  function num(el){
+    const n = parseFloat(el.value);
+    return Number.isFinite(n) && n >= 0 ? n : 0;
+  }
+
+  function signed(value){
+    const rounded = Math.abs(value);
+    return (value >= 0 ? "+" : "-") + money.format(rounded);
+  }
+
+  function update(){
+
+    const rate = num(hourlyRate);
+    const hours = num(estimatedHours);
+    const scopePct = num(uncertainty);
+    const revisionPct = num(revisionRisk);
+    const fixed = num(fixedQuote);
+
+    const base = rate * hours;
+    const adjustment = 1 + ((scopePct + revisionPct) / 100);
+    const adjusted = base * adjustment;
+    const diff = adjusted - fixed;
+
+    document.getElementById("hourly-base").textContent = money.format(base);
+    document.getElementById("hourly-adjusted").textContent = money.format(adjusted);
+    document.getElementById("fixed-total").textContent = money.format(fixed);
+    document.getElementById("difference").textContent = money.format(Math.abs(diff));
+
+    const title = document.getElementById("recommendation-title");
+    const copy = document.getElementById("recommendation-copy");
+
+    const threshold = Math.max(fixed, adjusted) * 0.05;
+
+    if(Math.abs(diff) <= threshold){
+      title.textContent = "Very close decision";
+      copy.textContent =
+        "The modeled costs are close enough that contract structure matters more than headline price. Choose hourly for flexibility or fixed-price for stronger cost certainty.";
+    }
+    else if(diff < 0){
+      title.textContent = "Hourly currently models cheaper";
+      copy.textContent =
+        "Under these assumptions, hourly work is cheaper even after the risk buffer. That advantage disappears if actual hours expand materially, so track scope and time closely.";
+    }
+    else{
+      title.textContent = "Fixed-price currently models cheaper";
+      copy.textContent =
+        "The fixed quote is lower than the risk-adjusted hourly estimate. Confirm that the quote actually includes the required deliverables, revisions and handoff before treating it as the cheaper deal.";
+    }
+
+    const scenarios = [
+      [0,"base"],
+      [10,"10"],
+      [25,"25"],
+      [50,"50"]
+    ];
+
+    scenarios.forEach(([pct,id]) => {
+
+      const total = base * (1 + pct / 100);
+      const scenarioDiff = total - fixed;
+
+      document.getElementById("scenario-" + id).textContent =
+        money.format(total);
+
+      document.getElementById("scenario-" + id + "-diff").textContent =
+        signed(scenarioDiff);
+
+    });
+
+  }
+
+  [hourlyRate,estimatedHours,uncertainty,revisionRisk,fixedQuote]
+    .forEach(el => el.addEventListener("input", update));
+
+  update();
+
+})();
+</script>
+
+</body>
+</html>
