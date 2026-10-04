@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Freelance Project Risk Check | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Check a freelance project for scope, payment, delivery, ownership and handoff risks before work begins."
+>
+
+<link rel="canonical" href="https://freelancehiringhub.com/tools/project-risk-check/">
+
+<meta property="og:title" content="Freelance Project Risk Check | Freelance Hiring Hub">
+<meta property="og:description" content="Score structural risks in a freelance project before money changes hands.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freelancehiringhub.com/tools/project-risk-check/">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="stylesheet" href="/assets/css/hub.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Freelance Project Risk Check",
+  "url":"https://freelancehiringhub.com/tools/project-risk-check/",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "isAccessibleForFree":true,
+  "publisher":{
+    "@type":"Organization",
+    "name":"Freelance Hiring Hub",
+    "url":"https://freelancehiringhub.com/"
+  }
+}
+</script>
+
+<style>
+.risk-tool{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);
+  border:1px solid var(--border,#cfc6ba);
+}
+
+.risk-inputs{
+  background:var(--cream,#f3eee6);
+  padding:28px;
+}
+
+.risk-question{
+  padding:18px 0;
+  border-top:1px solid #d4cbc0;
+}
+
+.risk-question:first-child{
+  border-top:0;
+}
+
+.risk-question strong{
+  display:block;
+  margin-bottom:10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.2rem;
+}
+
+.risk-options{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.risk-options label{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  cursor:pointer;
+}
+
+.risk-results{
+  background:#0c0c0d;
+  color:#fff;
+  padding:30px;
+}
+
+.risk-results .eyebrow{
+  color:#c8beb8;
+}
+
+.overall-score{
+  margin:10px 0 6px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(3rem,8vw,5rem);
+  line-height:1;
+}
+
+.overall-label{
+  font-size:1.3rem;
+  font-weight:800;
+  margin-bottom:24px;
+}
+
+.category{
+  padding:16px 0;
+  border-top:1px solid #343033;
+}
+
+.category-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:8px;
+}
+
+.category-bar{
+  height:8px;
+  background:#292629;
+}
+
+.category-fill{
+  height:100%;
+  background:#6a151d;
+  width:0;
+  transition:width .2s ease;
+}
+
+.risk-summary{
+  margin-top:26px;
+  padding-top:22px;
+  border-top:2px solid #6a151d;
+  color:#d4ceca;
+  line-height:1.7;
+}
+
+.action-box{
+  margin-top:30px;
+  padding:24px;
+  background:#ebe4da;
+  border-left:5px solid #6a151d;
+}
+
+.action-box h3{
+  margin-top:0;
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.action-box ul{
+  line-height:1.7;
+}
+
+.trustless-box{
+  margin-top:34px;
+  padding:26px;
+  background:#171516;
+  color:#fff;
+  border-top:5px solid #6a151d;
+}
+
+.trustless-box h3{
+  margin:5px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.8rem;
+}
+
+.trustless-box p{
+  color:#d1cac5;
+  line-height:1.7;
+}
+
+.trustless-box a{
+  display:inline-block;
+  margin-top:6px;
+  padding:13px 18px;
+  background:#6a151d;
+  color:#fff;
+  font-weight:800;
+}
+
+.reset-risk{
+  width:100%;
+  margin-top:22px;
+  padding:14px;
+  border:0;
+  background:#eee8df;
+  color:#171516;
+  font:inherit;
+  font-weight:800;
+  cursor:pointer;
+}
+
+@media(max-width:760px){
+  .risk-tool{
+    grid-template-columns:1fr;
+  }
+
+  .risk-inputs,
+  .risk-results{
+    padding:22px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+        <img
+          class="brand-logo"
+          src="/assets/images/freelance-hiring-hub-logo.png"
+          alt=""
+          width="46"
+          height="46"
+        >
+        <span>Freelance Hiring Hub</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/hire/">Hire</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="/compare/">Compare</a>
+        <a href="/costs/">Costs</a>
+        <a href="/safety/">Safety</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/">Tools</a>
+        <a href="/resources/">More</a>
+      </div>
+
+      <a class="start" href="/guides/">Start Here →</a>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >Menu</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/hire/">Find a Freelancer</a>
+      <a href="/platforms/">Choose a Platform</a>
+      <a href="/compare/">Compare Platforms</a>
+      <a href="/costs/">Check Costs</a>
+      <a href="/safety/">Hire Safely</a>
+      <a href="/problems/">Solve a Problem</a>
+      <a href="/guides/">Guides</a>
+      <a href="/templates/">Templates</a>
+      <a href="/tools/">Tools</a>
+      <a href="/resources/">Resources</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+
+    <div class="eyebrow">Stress-test the deal before work starts</div>
+
+    <h1>Freelance Project Risk Check</h1>
+
+    <p>
+      Check whether scope, payments, deadlines, ownership and handoff are
+      defined well enough to support the project.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>How well is the project structured?</h2>
+      </div>
+
+      <p>
+        Answer each question based on the agreement as it exists now, not what
+        you expect to figure out later.
+      </p>
+    </div>
+
+    <div class="risk-tool">
+
+      <div class="risk-inputs">
+
+        <div class="risk-question" data-category="scope">
+          <strong>Is the scope written and specific?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q1" value="0"> Yes</label>
+            <label><input type="radio" name="q1" value="6"> Partly</label>
+            <label><input type="radio" name="q1" value="12"> No</label>
+          </div>
+        </div>
+
+        <div class="risk-question" data-category="scope">
+          <strong>Are revision limits defined?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q2" value="0"> Yes</label>
+            <label><input type="radio" name="q2" value="5"> Partly</label>
+            <label><input type="radio" name="q2" value="10"> No</label>
+          </div>
+        </div>
+
+        <div class="risk-question" data-category="payment">
+          <strong>Is payment tied to milestones or defined delivery?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q3" value="0"> Yes</label>
+            <label><input type="radio" name="q3" value="7"> Partly</label>
+            <label><input type="radio" name="q3" value="14"> No</label>
+          </div>
+        </div>
+
+        <div class="risk-question" data-category="payment">
+          <strong>Is a large portion paid before meaningful work is delivered?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q4" value="12"> Yes</label>
+            <label><input type="radio" name="q4" value="6"> Some</label>
+            <label><input type="radio" name="q4" value="0"> No</label>
+          </div>
+        </div>
+
+        <div class="risk-question" data-category="delivery">
+          <strong>Are deadlines realistic and tied to deliverables?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q5" value="0"> Yes</label>
+            <label><input type="radio" name="q5" value="5"> Unclear</label>
+            <label><input type="radio" name="q5" value="10"> No</label>
+          </div>
+        </div>
+
+        <div class="risk-question" data-category="delivery">
+          <strong>Are dependencies and client responsibilities defined?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q6" value="0"> Yes</label>
+            <label><input type="radio" name="q6" value="5"> Partly</label>
+            <label><input type="radio" name="q6" value="10"> No</label>
+          </div>
+        </div>
+
+        <div class="risk-question" data-category="ownership">
+          <strong>Is ownership of final work clearly defined?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q7" value="0"> Yes</label>
+            <label><input type="radio" name="q7" value="6"> Partly</label>
+            <label><input type="radio" name="q7" value="12"> No</label>
+          </div>
+        </div>
+
+        <div class="risk-question" data-category="ownership">
+          <strong>Are source files, credentials or admin access part of handoff?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q8" value="0"> Yes</label>
+            <label><input type="radio" name="q8" value="6"> Unclear</label>
+            <label><input type="radio" name="q8" value="12"> No</label>
+          </div>
+        </div>
+
+        <div class="risk-question" data-category="delivery">
+          <strong>Could one person disappearing block the entire project?</strong>
+          <div class="risk-options">
+            <label><input type="radio" name="q9" value="10"> Yes</label>
+            <label><input type="radio" name="q9" value="5"> Maybe</label>
+            <label><input type="radio" name="q9" value="0"> No</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="risk-results">
+
+        <div class="eyebrow">Project risk</div>
+
+        <div class="overall-score" id="overall-score">0</div>
+        <div class="overall-label" id="overall-label">Low risk</div>
+
+        <div class="category">
+          <div class="category-head">
+            <span>Scope</span>
+            <strong id="scope-score">0</strong>
+          </div>
+          <div class="category-bar"><div class="category-fill" id="scope-bar"></div></div>
+        </div>
+
+        <div class="category">
+          <div class="category-head">
+            <span>Payment</span>
+            <strong id="payment-score">0</strong>
+          </div>
+          <div class="category-bar"><div class="category-fill" id="payment-bar"></div></div>
+        </div>
+
+        <div class="category">
+          <div class="category-head">
+            <span>Delivery</span>
+            <strong id="delivery-score">0</strong>
+          </div>
+          <div class="category-bar"><div class="category-fill" id="delivery-bar"></div></div>
+        </div>
+
+        <div class="category">
+          <div class="category-head">
+            <span>Ownership</span>
+            <strong id="ownership-score">0</strong>
+          </div>
+          <div class="category-bar"><div class="category-fill" id="ownership-bar"></div></div>
+        </div>
+
+        <div class="risk-summary" id="risk-summary">
+          Answer the questions to identify where the project structure is weakest.
+        </div>
+
+        <button class="reset-risk" id="reset-risk" type="button">Reset check</button>
+
+      </div>
+
+    </div>
+
+    <div class="action-box">
+      <h3 id="action-title">Start with the weak point.</h3>
+      <ul id="action-list">
+        <li>Define scope and acceptance criteria.</li>
+        <li>Structure payment around observable delivery.</li>
+        <li>Clarify ownership and final handoff.</li>
+      </ul>
+    </div>
+
+    <div class="trustless-box" id="trustless-box" hidden>
+      <div class="eyebrow">Payment structure needs attention</div>
+
+      <h3>Clear terms are stronger when the payment mechanism follows them.</h3>
+
+      <p>
+        Trustless Network combines structured freelance agreements with XRP escrow
+        so payment rules can follow defined project conditions instead of relying
+        only on informal promises.
+      </p>
+
+      <a href="https://trustlessnetwork.app/" target="_blank" rel="noopener">
+        Explore Trustless Network →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>Fix the structure before increasing the budget.</h2>
+
+      <p>
+        Most project risk gets easier to manage when expectations are converted
+        into scope, milestones, deadlines, acceptance conditions and handoff rules.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/guides/how-to-write-a-project-brief/">Write a Project Brief →</a>
+      <a href="/guides/how-to-structure-milestones/">Structure Milestones →</a>
+      <a href="/templates/scope-of-work/">Scope of Work Template →</a>
+      <a href="/templates/revision-policy/">Revision Policy Template →</a>
+      <a href="/templates/project-handoff-checklist/">Project Handoff Checklist →</a>
+      <a href="/safety/safe-milestone-payments/">Safe Milestone Payments →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>Use the rest of the buyer toolkit.</h2>
+    </div>
+
+    <div class="text-list">
+      <a href="/tools/">Project Budget Calculator →</a>
+      <a href="/tools/freelancer-rate-converter/">Freelancer Rate Converter →</a>
+      <a href="/tools/milestone-planner/">Milestone Planner →</a>
+      <a href="/tools/platform-fee-calculator/">Platform Fee Calculator →</a>
+      <a href="/tools/freelancer-red-flag-checker/">Freelancer Red Flag Checker →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>Freelance Hiring Hub</div>
+    <div>Better freelance decisions.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/hub.js"></script>
+
+<script>
+(function(){
+
+  const questions = Array.from(document.querySelectorAll(".risk-question"));
+  const radios = Array.from(document.querySelectorAll('.risk-question input[type="radio"]'));
+
+  const categories = ["scope","payment","delivery","ownership"];
+
+  const maxByCategory = {
+    scope:22,
+    payment:26,
+    delivery:30,
+    ownership:24
+  };
+
+  const totalMax = Object.values(maxByCategory).reduce((a,b)=>a+b,0);
+
+  function totals(){
+
+    const result = {
+      scope:0,
+      payment:0,
+      delivery:0,
+      ownership:0
+    };
+
+    questions.forEach(q => {
+
+      const checked = q.querySelector('input[type="radio"]:checked');
+
+      if(checked){
+        result[q.dataset.category] += Number(checked.value || 0);
+      }
+
+    });
+
+    return result;
+  }
+
+  function riskLabel(score){
+
+    if(score >= 65) return "Severe risk";
+    if(score >= 40) return "High risk";
+    if(score >= 20) return "Moderate risk";
+    return "Low risk";
+
+  }
+
+  function summaryFor(score){
+
+    if(score >= 65){
+      return "The project has several structural weaknesses. Resolve the highest-risk areas before committing significant money or relying on the current agreement.";
+    }
+
+    if(score >= 40){
+      return "The project has meaningful structural risk. Tighten the weak categories before work progresses too far.";
+    }
+
+    if(score >= 20){
+      return "The project has some preventable weaknesses. A few clearer rules could materially improve the agreement.";
+    }
+
+    return "The project structure appears relatively controlled. Keep the agreement specific and verify that actual execution matches the written terms.";
+  }
+
+  function actionsFor(values){
+
+    const ranked = categories
+      .map(cat => ({
+        cat,
+        pct:(values[cat] / maxByCategory[cat]) * 100
+      }))
+      .sort((a,b) => b.pct - a.pct);
+
+    const top = ranked[0].cat;
+
+    const labels = {
+      scope:"Scope",
+      payment:"Payment",
+      delivery:"Delivery",
+      ownership:"Ownership"
+    };
+
+    const actions = {
+      scope:[
+        "Write concrete deliverables and acceptance criteria.",
+        "Define what counts as a revision versus new scope.",
+        "Document anything explicitly excluded from the project."
+      ],
+      payment:[
+        "Tie payments to defined milestones or accepted delivery.",
+        "Avoid concentrating too much payment before meaningful progress.",
+        "Document refund, cancellation and non-delivery conditions."
+      ],
+      delivery:[
+        "Set realistic deadlines around actual dependencies.",
+        "Define client responsibilities and required approvals.",
+        "Plan for access continuity if one person becomes unavailable."
+      ],
+      ownership:[
+        "Define ownership of completed work in writing.",
+        "List source files, credentials and assets required at handoff.",
+        "Avoid leaving critical accounts controlled only by the freelancer."
+      ]
+    };
+
+    document.getElementById("action-title").textContent =
+      "Highest-risk category: " + labels[top];
+
+    document.getElementById("action-list").innerHTML =
+      actions[top].map(x => "<li>" + x + "</li>").join("");
+  }
+
+  function update(){
+
+    const values = totals();
+
+    const total = categories.reduce((sum,cat)=>sum + values[cat],0);
+    const score = Math.round((total / totalMax) * 100);
+
+    document.getElementById("overall-score").textContent = score;
+    document.getElementById("overall-label").textContent = riskLabel(score);
+    document.getElementById("risk-summary").textContent = summaryFor(score);
+
+    categories.forEach(cat => {
+
+      const pct = Math.min(
+        (values[cat] / maxByCategory[cat]) * 100,
+        100
+      );
+
+      document.getElementById(cat + "-score").textContent =
+        Math.round(pct) + "%";
+
+      document.getElementById(cat + "-bar").style.width =
+        pct + "%";
+
+    });
+
+    actionsFor(values);
+
+    const paymentPct = (values.payment / maxByCategory.payment) * 100;
+
+    document.getElementById("trustless-box").hidden =
+      paymentPct < 25;
+  }
+
+  radios.forEach(r => r.addEventListener("change", update));
+
+  document.getElementById("reset-risk").addEventListener("click", function(){
+
+    radios.forEach(r => {
+      r.checked = false;
+    });
+
+    update();
+  });
+
+  update();
+
+})();
+</script>
+
+</body>
+</html>
