@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Freelancer Rate Converter: Hourly, Daily, Weekly & Monthly Rates | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Convert freelance rates between hourly, daily, weekly, monthly and annual estimates. Adjust working assumptions and estimate project cost from expected hours."
+>
+
+<link rel="canonical" href="https://freelancehiringhub.com/tools/freelancer-rate-converter/">
+
+<meta property="og:title" content="Freelancer Rate Converter | Freelance Hiring Hub">
+<meta
+  property="og:description"
+  content="Convert freelance hourly, daily, weekly, monthly and annual rates using your own working assumptions."
+>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freelancehiringhub.com/tools/freelancer-rate-converter/">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="stylesheet" href="/assets/css/hub.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelancer Rate Converter",
+  "url": "https://freelancehiringhub.com/tools/freelancer-rate-converter/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Freelance Hiring Hub",
+    "url": "https://freelancehiringhub.com/"
+  }
+}
+</script>
+
+<style>
+.rate-tool{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);
+  border:1px solid var(--border,#cfc6ba);
+  background:var(--cream,#f3eee6);
+}
+
+.rate-inputs{
+  display:grid;
+}
+
+.rate-field{
+  padding:26px 28px;
+  border-bottom:1px solid var(--border,#cfc6ba);
+}
+
+.rate-field:last-child{
+  border-bottom:0;
+}
+
+.rate-field label{
+  display:block;
+  margin:0 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:700;
+  font-size:1.35rem;
+}
+
+.rate-field input,
+.rate-field select{
+  width:100%;
+  padding:16px 18px;
+  border:1px solid #c9c2b8;
+  background:#fff;
+  color:#171516;
+  font:inherit;
+  font-size:1.15rem;
+}
+
+.rate-field small{
+  display:block;
+  margin-top:10px;
+  color:var(--muted,#716b65);
+  line-height:1.55;
+}
+
+.rate-results{
+  background:#0c0c0d;
+  color:#fff;
+  padding:30px;
+}
+
+.rate-results .eyebrow{
+  color:#c8beb8;
+}
+
+.rate-primary{
+  margin:12px 0 24px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.5rem,7vw,4.8rem);
+  line-height:.95;
+}
+
+.rate-result-row{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:18px 0;
+  border-top:1px solid #343033;
+}
+
+.rate-result-row span:first-child{
+  color:#cfc8c2;
+}
+
+.rate-result-row strong{
+  text-align:right;
+  font-size:1.05rem;
+}
+
+.rate-project{
+  margin-top:26px;
+  padding-top:26px;
+  border-top:2px solid #6a151d;
+}
+
+.rate-project small{
+  display:block;
+  color:#cfc8c2;
+  margin-bottom:7px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-weight:700;
+}
+
+.rate-project strong{
+  display:block;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:2.25rem;
+}
+
+.tool-note{
+  padding:22px 24px;
+  margin-top:24px;
+  border-left:5px solid #6a151d;
+  background:#ebe4da;
+  line-height:1.7;
+}
+
+@media(max-width:760px){
+  .rate-tool{
+    grid-template-columns:1fr;
+  }
+
+  .rate-field{
+    padding:22px 20px;
+  }
+
+  .rate-results{
+    padding:26px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+        <img
+          class="brand-logo"
+          src="/assets/images/freelance-hiring-hub-logo.png"
+          alt=""
+          width="46"
+          height="46"
+        >
+        <span>Freelance Hiring Hub</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/hire/">Hire</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="/compare/">Compare</a>
+        <a href="/costs/">Costs</a>
+        <a href="/safety/">Safety</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/">Tools</a>
+        <a href="/resources/">More</a>
+      </div>
+
+      <a class="start" href="/guides/">Start Here →</a>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        Menu
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/hire/">Find a Freelancer</a>
+      <a href="/platforms/">Choose a Platform</a>
+      <a href="/compare/">Compare Platforms</a>
+      <a href="/costs/">Check Costs</a>
+      <a href="/safety/">Hire Safely</a>
+      <a href="/problems/">Solve a Problem</a>
+      <a href="/guides/">Guides</a>
+      <a href="/templates/">Templates</a>
+      <a href="/tools/">Tools</a>
+      <a href="/resources/">Resources</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+
+    <div class="eyebrow">Compare rates on the same basis</div>
+
+    <h1>Freelancer Rate Converter</h1>
+
+    <p>
+      Turn hourly, daily, weekly, monthly and annual freelance rates into
+      comparable numbers using working assumptions you control.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>Convert a freelance rate.</h2>
+      </div>
+
+      <p>
+        Start with the rate you were quoted. Change the working schedule below
+        to compare it with other pricing formats.
+      </p>
+    </div>
+
+    <div class="rate-tool">
+
+      <div class="rate-inputs">
+
+        <div class="rate-field">
+          <label for="rate-amount">Quoted rate ($)</label>
+          <input
+            id="rate-amount"
+            type="number"
+            min="0"
+            step="1"
+            value="50"
+            inputmode="decimal"
+          >
+        </div>
+
+        <div class="rate-field">
+          <label for="rate-basis">Rate is quoted as</label>
+          <select id="rate-basis">
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="annual">Annual</option>
+          </select>
+        </div>
+
+        <div class="rate-field">
+          <label for="hours-day">Billable hours per day</label>
+          <input
+            id="hours-day"
+            type="number"
+            min="0.5"
+            step="0.5"
+            value="8"
+            inputmode="decimal"
+          >
+          <small>
+            Use actual expected billable hours rather than assuming every
+            working hour is billable.
+          </small>
+        </div>
+
+        <div class="rate-field">
+          <label for="days-week">Billable days per week</label>
+          <input
+            id="days-week"
+            type="number"
+            min="1"
+            max="7"
+            step="0.5"
+            value="5"
+            inputmode="decimal"
+          >
+        </div>
+
+        <div class="rate-field">
+          <label for="weeks-month">Weeks per month</label>
+          <input
+            id="weeks-month"
+            type="number"
+            min="1"
+            max="5"
+            step="0.01"
+            value="4.33"
+            inputmode="decimal"
+          >
+          <small>
+            4.33 approximates the average number of weeks in a calendar month.
+          </small>
+        </div>
+
+        <div class="rate-field">
+          <label for="project-hours">Estimated project hours</label>
+          <input
+            id="project-hours"
+            type="number"
+            min="0"
+            step="0.5"
+            value="40"
+            inputmode="decimal"
+          >
+          <small>
+            Optional project estimate based on the converted hourly rate.
+          </small>
+        </div>
+
+      </div>
+
+      <div class="rate-results">
+
+        <div class="eyebrow">Equivalent rates</div>
+
+        <div class="rate-primary" id="hourly-result">$50.00/hr</div>
+
+        <div class="rate-result-row">
+          <span>Daily</span>
+          <strong id="daily-result">$400.00</strong>
+        </div>
+
+        <div class="rate-result-row">
+          <span>Weekly</span>
+          <strong id="weekly-result">$2,000.00</strong>
+        </div>
+
+        <div class="rate-result-row">
+          <span>Monthly</span>
+          <strong id="monthly-result">$8,660.00</strong>
+        </div>
+
+        <div class="rate-result-row">
+          <span>Annual equivalent</span>
+          <strong id="annual-result">$104,000.00</strong>
+        </div>
+
+        <div class="rate-project">
+          <small>Estimated project labor</small>
+          <strong id="project-result">$2,000.00</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="tool-note">
+      These conversions are planning estimates, not guarantees of freelancer
+      income or project cost. Freelancers may price retainers, fixed-price work,
+      rush jobs, revisions and specialized projects differently.
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Use the number</div>
+        <h2>A rate only tells part of the story.</h2>
+      </div>
+
+      <p>
+        Compare the converted rate against project scope, expected hours,
+        platform costs and the quality of the freelancer you are evaluating.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/tools/">Freelance Project Budget Calculator →</a>
+      <a href="/costs/how-much-to-pay-a-freelancer/">How Much Should You Pay a Freelancer? →</a>
+      <a href="/costs/web-developer-rates/">Freelance Web Developer Rates →</a>
+      <a href="/costs/graphic-designer-rates/">Freelance Graphic Designer Rates →</a>
+      <a href="/costs/copywriter-rates/">Freelance Copywriter Rates →</a>
+      <a href="/costs/video-editor-rates/">Freelance Video Editor Rates →</a>
+      <a href="/compare/hourly-vs-fixed-price/">Hourly vs Fixed-Price Freelance Work →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>From rate to agreement.</h2>
+
+      <p>
+        Once price makes sense, define deliverables, revisions, deadlines and
+        payment conditions before work begins.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/guides/how-to-write-a-project-brief/">Write a Project Brief →</a>
+      <a href="/guides/how-to-structure-milestones/">Structure Freelance Milestones →</a>
+      <a href="/templates/scope-of-work/">Scope of Work Template →</a>
+      <a href="/templates/milestone-plan/">Milestone Plan Template →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>Freelance Hiring Hub</div>
+    <div>Better freelance decisions.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/hub.js"></script>
+
+<script>
+(function(){
+  const amount = document.getElementById("rate-amount");
+  const basis = document.getElementById("rate-basis");
+  const hoursDay = document.getElementById("hours-day");
+  const daysWeek = document.getElementById("days-week");
+  const weeksMonth = document.getElementById("weeks-month");
+  const projectHours = document.getElementById("project-hours");
+
+  const hourlyOut = document.getElementById("hourly-result");
+  const dailyOut = document.getElementById("daily-result");
+  const weeklyOut = document.getElementById("weekly-result");
+  const monthlyOut = document.getElementById("monthly-result");
+  const annualOut = document.getElementById("annual-result");
+  const projectOut = document.getElementById("project-result");
+
+  const money = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+
+  function n(el, fallback){
+    const x = parseFloat(el.value);
+    return Number.isFinite(x) && x >= 0 ? x : fallback;
+  }
+
+  function update(){
+    const quoted = n(amount, 0);
+    const hpday = Math.max(n(hoursDay, 8), 0.01);
+    const dpweek = Math.max(n(daysWeek, 5), 0.01);
+    const wpmonth = Math.max(n(weeksMonth, 4.33), 0.01);
+    const projHours = n(projectHours, 0);
+
+    const dayHours = hpday;
+    const weekHours = hpday * dpweek;
+    const monthHours = weekHours * wpmonth;
+    const yearHours = weekHours * 52;
+
+    let hourly = quoted;
+
+    switch(basis.value){
+      case "daily":
+        hourly = quoted / dayHours;
+        break;
+      case "weekly":
+        hourly = quoted / weekHours;
+        break;
+      case "monthly":
+        hourly = quoted / monthHours;
+        break;
+      case "annual":
+        hourly = quoted / yearHours;
+        break;
+    }
+
+    const daily = hourly * dayHours;
+    const weekly = hourly * weekHours;
+    const monthly = hourly * monthHours;
+    const annual = hourly * yearHours;
+    const project = hourly * projHours;
+
+    hourlyOut.textContent = money.format(hourly) + "/hr";
+    dailyOut.textContent = money.format(daily);
+    weeklyOut.textContent = money.format(weekly);
+    monthlyOut.textContent = money.format(monthly);
+    annualOut.textContent = money.format(annual);
+    projectOut.textContent = money.format(project);
+  }
+
+  [amount,basis,hoursDay,daysWeek,weeksMonth,projectHours]
+    .forEach(el => el.addEventListener("input", update));
+
+  update();
+})();
+</script>
+
+</body>
+</html>

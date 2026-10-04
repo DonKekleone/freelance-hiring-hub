@@ -916,3 +916,20 @@ footer{
 .brand span{
   display:block;
 }
+
+/* LIVE TOOL LINKS */
+
+.future-item[href]{
+  color:inherit;
+  text-decoration:none;
+  transition:opacity .18s ease;
+}
+
+.future-item[href]:hover{
+  opacity:.68;
+}
+
+.future-item[href] .future-tag{
+  color:var(--maroon,#6a151d);
+  font-weight:800;
+}
