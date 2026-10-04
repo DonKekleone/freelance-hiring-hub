@@ -1000,3 +1000,73 @@ footer{
     width:100%;
   }
 }
+
+
+/* STRUCTURED PAYMENT / TRUSTLESS CONTEXT */
+
+.structured-payment-section{
+  padding-top:0;
+}
+
+.structured-payment{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:30px;
+  padding:30px;
+  background:#f1ebe3;
+  border:1px solid #cec4b8;
+  border-left:6px solid var(--maroon,#6a151d);
+}
+
+.structured-payment-copy small{
+  display:block;
+  margin-bottom:8px;
+  color:var(--maroon,#6a151d);
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.structured-payment h3{
+  margin:0 0 9px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.45rem,3vw,2rem);
+  line-height:1.1;
+}
+
+.structured-payment p{
+  margin:0;
+  max-width:780px;
+  color:#4f4945;
+  line-height:1.7;
+}
+
+.structured-payment a{
+  display:inline-block;
+  min-width:190px;
+  padding:14px 18px;
+  background:#171516;
+  color:#fff;
+  font-weight:800;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.structured-payment a:hover{
+  opacity:.86;
+}
+
+@media(max-width:700px){
+  .structured-payment{
+    grid-template-columns:1fr;
+    padding:24px 20px;
+  }
+
+  .structured-payment a{
+    width:100%;
+  }
+}
