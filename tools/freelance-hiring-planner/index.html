@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Freelance Hiring Planner | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Plan a freelance hire with recommendations for pricing, platform choice, milestones, vetting and project structure."
+>
+
+<link rel="canonical" href="https://freelancehiringhub.com/tools/freelance-hiring-planner/">
+
+<meta property="og:title" content="Freelance Hiring Planner | Freelance Hiring Hub">
+<meta property="og:description" content="Get a recommended freelance hiring path based on budget, scope, deadline, project type and risk.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freelancehiringhub.com/tools/freelance-hiring-planner/">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="stylesheet" href="/assets/css/hub.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Freelance Hiring Planner",
+  "url":"https://freelancehiringhub.com/tools/freelance-hiring-planner/",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "isAccessibleForFree":true,
+  "publisher":{
+    "@type":"Organization",
+    "name":"Freelance Hiring Hub",
+    "url":"https://freelancehiringhub.com/"
+  }
+}
+</script>
+
+<style>
+.planner{
+  display:grid;
+  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+  border:1px solid var(--border,#cfc6ba);
+}
+
+.planner-inputs{
+  background:var(--cream,#f3eee6);
+}
+
+.planner-field{
+  padding:24px 28px;
+  border-bottom:1px solid #d4cbc0;
+}
+
+.planner-field:last-child{
+  border-bottom:0;
+}
+
+.planner-field label{
+  display:block;
+  margin-bottom:10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.22rem;
+  font-weight:700;
+}
+
+.planner-field select,
+.planner-field input{
+  width:100%;
+  padding:15px 16px;
+  border:1px solid #c9c2b8;
+  background:#fff;
+  color:#171516;
+  font:inherit;
+}
+
+.planner-field small{
+  display:block;
+  margin-top:8px;
+  color:var(--muted,#716b65);
+  line-height:1.5;
+}
+
+.planner-results{
+  background:#0c0c0d;
+  color:#fff;
+  padding:30px;
+}
+
+.planner-results .eyebrow{
+  color:#c8beb8;
+}
+
+.path-title{
+  margin:12px 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.2rem,6vw,3.8rem);
+  line-height:1;
+}
+
+.path-summary{
+  color:#d4ceca;
+  line-height:1.7;
+  margin-bottom:24px;
+}
+
+.plan-row{
+  padding:18px 0;
+  border-top:1px solid #343033;
+}
+
+.plan-row small{
+  display:block;
+  color:#aaa3a0;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:6px;
+}
+
+.plan-row strong{
+  display:block;
+  font-size:1.08rem;
+}
+
+.next-steps{
+  margin-top:26px;
+  padding-top:24px;
+  border-top:2px solid #6a151d;
+}
+
+.next-steps h3{
+  margin:0 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.45rem;
+}
+
+.next-steps ul{
+  margin:0;
+  padding-left:20px;
+  color:#d4ceca;
+  line-height:1.7;
+}
+
+.recommended-links{
+  margin-top:30px;
+  display:grid;
+  gap:10px;
+}
+
+.recommended-links a{
+  display:block;
+  padding:14px 16px;
+  background:#eee8df;
+  color:#171516;
+  font-weight:800;
+}
+
+.trustless-box{
+  margin-top:34px;
+  padding:26px;
+  background:#171516;
+  color:#fff;
+  border-top:5px solid #6a151d;
+}
+
+.trustless-box h3{
+  margin:5px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.8rem;
+}
+
+.trustless-box p{
+  color:#d1cac5;
+  line-height:1.7;
+}
+
+.trustless-box a{
+  display:inline-block;
+  margin-top:6px;
+  padding:13px 18px;
+  background:#6a151d;
+  color:#fff;
+  font-weight:800;
+}
+
+@media(max-width:760px){
+  .planner{
+    grid-template-columns:1fr;
+  }
+
+  .planner-field,
+  .planner-results{
+    padding:22px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+        <img
+          class="brand-logo"
+          src="/assets/images/freelance-hiring-hub-logo.png"
+          alt=""
+          width="46"
+          height="46"
+        >
+        <span>Freelance Hiring Hub</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/hire/">Hire</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="/compare/">Compare</a>
+        <a href="/costs/">Costs</a>
+        <a href="/safety/">Safety</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/">Tools</a>
+        <a href="/resources/">More</a>
+      </div>
+
+      <a class="start" href="/guides/">Start Here →</a>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >Menu</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/hire/">Find a Freelancer</a>
+      <a href="/platforms/">Choose a Platform</a>
+      <a href="/compare/">Compare Platforms</a>
+      <a href="/costs/">Check Costs</a>
+      <a href="/safety/">Hire Safely</a>
+      <a href="/problems/">Solve a Problem</a>
+      <a href="/guides/">Guides</a>
+      <a href="/templates/">Templates</a>
+      <a href="/tools/">Tools</a>
+      <a href="/resources/">Resources</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+
+    <div class="eyebrow">Choose the hiring path before choosing the freelancer</div>
+
+    <h1>Freelance Hiring Planner</h1>
+
+    <p>
+      Answer a few questions about the work and get a recommended path for
+      pricing, sourcing, milestones, vetting and project structure.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>Plan the hire.</h2>
+      </div>
+
+      <p>
+        The recommendation is based on project structure, not on any single marketplace.
+      </p>
+    </div>
+
+    <div class="planner">
+
+      <div class="planner-inputs">
+
+        <div class="planner-field">
+          <label for="role-type">What are you hiring for?</label>
+          <select id="role-type">
+            <option value="design">Design</option>
+            <option value="development">Development</option>
+            <option value="writing">Writing</option>
+            <option value="marketing">Marketing</option>
+            <option value="video">Video / Audio</option>
+            <option value="support">Business Support</option>
+            <option value="ai">AI / Data</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="planner-field">
+          <label for="budget-range">Project budget</label>
+          <select id="budget-range">
+            <option value="small">Under $500</option>
+            <option value="medium" selected>$500–$3,000</option>
+            <option value="large">$3,000–$10,000</option>
+            <option value="major">$10,000+</option>
+          </select>
+        </div>
+
+        <div class="planner-field">
+          <label for="scope-clarity">How clear is the scope?</label>
+          <select id="scope-clarity">
+            <option value="clear">Very clear</option>
+            <option value="moderate" selected>Mostly clear</option>
+            <option value="unclear">Still evolving</option>
+          </select>
+        </div>
+
+        <div class="planner-field">
+          <label for="engagement">Type of engagement</label>
+          <select id="engagement">
+            <option value="oneoff" selected>One-off project</option>
+            <option value="ongoing">Ongoing work</option>
+            <option value="trial">Paid trial first</option>
+          </select>
+        </div>
+
+        <div class="planner-field">
+          <label for="deadline-pressure">Deadline pressure</label>
+          <select id="deadline-pressure">
+            <option value="low">Flexible</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">Urgent</option>
+          </select>
+        </div>
+
+        <div class="planner-field">
+          <label for="marketplace-preference">Hiring preference</label>
+          <select id="marketplace-preference">
+            <option value="marketplace">Prefer a freelance marketplace</option>
+            <option value="direct">Comfortable hiring directly</option>
+            <option value="either" selected>Open to either</option>
+          </select>
+        </div>
+
+        <div class="planner-field">
+          <label for="ownership-importance">Is source-file / ownership handoff important?</label>
+          <select id="ownership-importance">
+            <option value="low">Not especially</option>
+            <option value="medium" selected>Yes</option>
+            <option value="high">Critical</option>
+          </select>
+        </div>
+
+        <div class="planner-field">
+          <label for="risk-tolerance">How cautious do you want to be?</label>
+          <select id="risk-tolerance">
+            <option value="fast">Move fast</option>
+            <option value="balanced" selected>Balanced</option>
+            <option value="cautious">Very cautious</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="planner-results">
+
+        <div class="eyebrow">Recommended path</div>
+
+        <div class="path-title" id="path-title">Structured marketplace hire</div>
+
+        <div class="path-summary" id="path-summary"></div>
+
+        <div class="plan-row">
+          <small>Pricing model</small>
+          <strong id="pricing-model">Fixed-price with milestones</strong>
+        </div>
+
+        <div class="plan-row">
+          <small>Sourcing route</small>
+          <strong id="sourcing-route">Compare marketplace and direct options</strong>
+        </div>
+
+        <div class="plan-row">
+          <small>Suggested milestones</small>
+          <strong id="milestone-count">3 milestones</strong>
+        </div>
+
+        <div class="plan-row">
+          <small>Vetting level</small>
+          <strong id="vetting-level">Moderate</strong>
+        </div>
+
+        <div class="plan-row">
+          <small>Handoff controls</small>
+          <strong id="handoff-control">Define files, access and ownership before kickoff</strong>
+        </div>
+
+        <div class="next-steps">
+          <h3>Next steps</h3>
+          <ul id="next-steps"></ul>
+        </div>
+
+        <div class="recommended-links" id="recommended-links"></div>
+
+      </div>
+
+    </div>
+
+    <div class="trustless-box" id="trustless-box" hidden>
+      <div class="eyebrow">Direct hire + structured payment</div>
+
+      <h3>Use rules instead of relying only on trust.</h3>
+
+      <p>
+        If you hire directly, define the work first and tie payment to clear
+        project conditions. Trustless Network uses structured freelance agreements
+        and XRP escrow for that kind of workflow.
+      </p>
+
+      <a href="https://trustlessnetwork.app/" target="_blank" rel="noopener">
+        Explore Trustless Network →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>Build the project from the recommendation.</h2>
+    </div>
+
+    <div class="text-list">
+      <a href="/tools/project-brief-builder/">Project Brief Builder →</a>
+      <a href="/tools/hourly-vs-fixed-price-calculator/">Hourly vs Fixed-Price Calculator →</a>
+      <a href="/tools/milestone-planner/">Milestone Planner →</a>
+      <a href="/tools/project-risk-check/">Project Risk Check →</a>
+      <a href="/tools/freelancer-red-flag-checker/">Freelancer Red Flag Checker →</a>
+      <a href="/platforms/">Compare Freelance Platforms →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>Freelance Hiring Hub</div>
+    <div>Better freelance decisions.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/hub.js"></script>
+
+<script>
+(function(){
+
+  const role = document.getElementById("role-type");
+  const budget = document.getElementById("budget-range");
+  const scope = document.getElementById("scope-clarity");
+  const engagement = document.getElementById("engagement");
+  const deadline = document.getElementById("deadline-pressure");
+  const preference = document.getElementById("marketplace-preference");
+  const ownership = document.getElementById("ownership-importance");
+  const risk = document.getElementById("risk-tolerance");
+
+  function recommend(){
+
+    let pricing = "Fixed-price with milestones";
+    let milestones = 3;
+    let vetting = "Moderate";
+    let sourcing = "Compare marketplace and direct options";
+    let pathTitle = "Structured freelance hire";
+    let summary = "Define the project clearly, compare qualified candidates and tie payment to observable delivery.";
+
+    if(scope.value === "unclear" || engagement.value === "ongoing"){
+      pricing = "Hourly or retainer";
+    }
+
+    if(scope.value === "clear" && engagement.value === "oneoff"){
+      pricing = "Fixed-price with milestones";
+    }
+
+    if(budget.value === "small"){
+      milestones = 2;
+    }
+
+    if(budget.value === "large"){
+      milestones = 4;
+    }
+
+    if(budget.value === "major"){
+      milestones = 5;
+    }
+
+    if(risk.value === "cautious"){
+      vetting = "High";
+      milestones = Math.max(milestones,4);
+    }
+
+    if(risk.value === "fast"){
+      vetting = "Light to moderate";
+    }
+
+    if(deadline.value === "high"){
+      vetting = risk.value === "cautious" ? "High" : "Moderate";
+    }
+
+    if(preference.value === "marketplace"){
+      sourcing = "Use a marketplace and compare platform protections";
+      pathTitle = "Marketplace-first hire";
+      summary = "Use a marketplace for discovery and transaction structure, but still define scope, revisions and handoff before funding.";
+    }
+
+    if(preference.value === "direct"){
+      sourcing = "Direct hire with structured agreement";
+      pathTitle = "Direct structured hire";
+      summary = "Direct hiring can reduce marketplace friction, but the agreement needs clear scope, milestones, payment rules and handoff terms.";
+    }
+
+    if(preference.value === "either"){
+      sourcing = "Compare marketplace and direct-hire options";
+    }
+
+    if(engagement.value === "trial"){
+      pathTitle = "Paid trial first";
+      milestones = 2;
+      summary = "Use a smaller paid test to validate communication, quality and delivery before expanding into the full engagement.";
+    }
+
+    let handoff = "Define files, access and ownership before kickoff";
+
+    if(ownership.value === "low"){
+      handoff = "Basic final-delivery requirements";
+    }
+
+    if(ownership.value === "high"){
+      handoff = "Critical: define ownership, source files, credentials and admin access";
+    }
+
+    document.getElementById("path-title").textContent = pathTitle;
+    document.getElementById("path-summary").textContent = summary;
+    document.getElementById("pricing-model").textContent = pricing;
+    document.getElementById("sourcing-route").textContent = sourcing;
+    document.getElementById("milestone-count").textContent = milestones + " milestones";
+    document.getElementById("vetting-level").textContent = vetting;
+    document.getElementById("handoff-control").textContent = handoff;
+
+    const steps = [];
+
+    steps.push("Write the project brief before collecting final quotes.");
+
+    if(pricing.includes("Hourly")){
+      steps.push("Set expected hours, reporting cadence and a budget ceiling.");
+    } else {
+      steps.push("Define deliverables and acceptance criteria before agreeing to the fixed price.");
+    }
+
+    if(vetting === "High"){
+      steps.push("Verify portfolio claims and consider a smaller paid test.");
+    } else {
+      steps.push("Verify relevant work samples and role-specific capability.");
+    }
+
+    steps.push("Define revision limits and final handoff requirements.");
+    steps.push("Tie payments to the agreed project structure.");
+
+    document.getElementById("next-steps").innerHTML =
+      steps.map(x => "<li>" + x + "</li>").join("");
+
+    const links = [
+      '<a href="/tools/project-brief-builder/">Build the project brief →</a>',
+      '<a href="/tools/milestone-planner/">Build the milestone plan →</a>',
+      '<a href="/tools/project-risk-check/">Run the project risk check →</a>'
+    ];
+
+    if(pricing.includes("Hourly")){
+      links.unshift('<a href="/tools/freelancer-rate-converter/">Convert the freelancer rate →</a>');
+    } else {
+      links.unshift('<a href="/tools/hourly-vs-fixed-price-calculator/">Compare hourly vs fixed-price →</a>');
+    }
+
+    if(preference.value === "marketplace"){
+      links.push('<a href="/platforms/">Compare freelance platforms →</a>');
+    }
+
+    if(preference.value === "direct" || preference.value === "either"){
+      links.push('<a href="/compare/marketplace-vs-direct-hire/">Marketplace vs direct hire →</a>');
+    }
+
+    document.getElementById("recommended-links").innerHTML = links.join("");
+
+    const trustless =
+      preference.value === "direct" ||
+      (
+        preference.value === "either" &&
+        (budget.value === "large" || budget.value === "major")
+      );
+
+    document.getElementById("trustless-box").hidden = !trustless;
+  }
+
+  [
+    role,
+    budget,
+    scope,
+    engagement,
+    deadline,
+    preference,
+    ownership,
+    risk
+  ].forEach(el => el.addEventListener("input", recommend));
+
+  recommend();
+
+})();
+</script>
+
+</body>
+</html>
