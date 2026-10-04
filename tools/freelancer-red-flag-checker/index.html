@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Freelancer Red Flag Checker | Freelance Hiring Hub</title>
+
+<meta
+  name="description"
+  content="Check freelance hiring warning signs and get a practical risk score with next-step guidance for portfolios, payment, communication, scope and project structure."
+>
+
+<link rel="canonical" href="https://freelancehiringhub.com/tools/freelancer-red-flag-checker/">
+
+<meta property="og:title" content="Freelancer Red Flag Checker | Freelance Hiring Hub">
+<meta
+  property="og:description"
+  content="Score common freelance hiring warning signs and see what to verify before money changes hands."
+>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freelancehiringhub.com/tools/freelancer-red-flag-checker/">
+<meta property="og:site_name" content="Freelance Hiring Hub">
+<meta property="og:image" content="https://freelancehiringhub.com/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="icon" type="image/png" href="/assets/images/freelance-hiring-hub-logo.png">
+<link rel="apple-touch-icon" href="/assets/images/freelance-hiring-hub-logo.png">
+
+<link rel="stylesheet" href="/assets/css/hub.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Freelancer Red Flag Checker",
+  "url": "https://freelancehiringhub.com/tools/freelancer-red-flag-checker/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "isAccessibleForFree": true,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Freelance Hiring Hub",
+    "url": "https://freelancehiringhub.com/"
+  }
+}
+</script>
+
+<style>
+.flag-tool{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+  border:1px solid var(--border,#cfc6ba);
+  background:var(--cream,#f3eee6);
+}
+
+.flag-list{
+  padding:26px;
+}
+
+.flag-group{
+  margin-bottom:28px;
+}
+
+.flag-group:last-child{
+  margin-bottom:0;
+}
+
+.flag-group h3{
+  margin:0 0 14px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.35rem;
+}
+
+.flag-item{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:14px;
+  align-items:start;
+  padding:16px 0;
+  border-top:1px solid #d4cbc0;
+  cursor:pointer;
+}
+
+.flag-item:first-of-type{
+  border-top:0;
+}
+
+.flag-item input{
+  width:20px;
+  height:20px;
+  margin-top:2px;
+}
+
+.flag-copy strong{
+  display:block;
+  margin-bottom:4px;
+}
+
+.flag-copy small{
+  color:var(--muted,#716b65);
+  line-height:1.5;
+}
+
+.flag-results{
+  background:#0c0c0d;
+  color:#fff;
+  padding:30px;
+}
+
+.flag-results .eyebrow{
+  color:#c8beb8;
+}
+
+.risk-score{
+  margin:10px 0 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(3rem,8vw,5.2rem);
+  line-height:.95;
+}
+
+.risk-label{
+  font-size:1.3rem;
+  font-weight:800;
+  margin-bottom:24px;
+}
+
+.risk-bar{
+  height:12px;
+  background:#2a2729;
+  overflow:hidden;
+  margin-bottom:26px;
+}
+
+.risk-bar-fill{
+  height:100%;
+  width:0%;
+  background:#6a151d;
+  transition:width .2s ease;
+}
+
+.risk-summary{
+  color:#d4ceca;
+  line-height:1.7;
+  margin-bottom:24px;
+}
+
+.risk-actions{
+  border-top:1px solid #343033;
+  padding-top:20px;
+}
+
+.risk-actions h3{
+  margin:0 0 12px;
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+}
+
+.risk-actions ul{
+  margin:0;
+  padding-left:20px;
+  color:#d4ceca;
+  line-height:1.7;
+}
+
+.flag-note{
+  margin-top:24px;
+  padding:20px 22px;
+  background:#ebe4da;
+  border-left:5px solid #6a151d;
+  line-height:1.7;
+}
+
+.trustless-risk{
+  margin-top:34px;
+  padding:26px;
+  background:#171516;
+  color:#fff;
+  border-top:5px solid #6a151d;
+}
+
+.trustless-risk h3{
+  margin:5px 0 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.8rem;
+}
+
+.trustless-risk p{
+  color:#d1cac5;
+  line-height:1.7;
+}
+
+.trustless-risk a{
+  display:inline-block;
+  margin-top:6px;
+  padding:13px 18px;
+  background:#6a151d;
+  color:#fff;
+  font-weight:800;
+}
+
+.reset-flags{
+  margin-top:22px;
+  width:100%;
+  padding:14px 18px;
+  background:#eee8df;
+  color:#171516;
+  border:0;
+  font:inherit;
+  font-weight:800;
+  cursor:pointer;
+}
+
+@media(max-width:760px){
+  .flag-tool{
+    grid-template-columns:1fr;
+  }
+
+  .flag-list,
+  .flag-results{
+    padding:22px 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+
+      <a class="brand" href="/" aria-label="Freelance Hiring Hub home">
+        <img
+          class="brand-logo"
+          src="/assets/images/freelance-hiring-hub-logo.png"
+          alt=""
+          width="46"
+          height="46"
+        >
+        <span>Freelance Hiring Hub</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="/hire/">Hire</a>
+        <a href="/platforms/">Platforms</a>
+        <a href="/compare/">Compare</a>
+        <a href="/costs/">Costs</a>
+        <a href="/safety/">Safety</a>
+        <a href="/guides/">Guides</a>
+        <a href="/tools/">Tools</a>
+        <a href="/resources/">More</a>
+      </div>
+
+      <a class="start" href="/guides/">Start Here →</a>
+
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        Menu
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/hire/">Find a Freelancer</a>
+      <a href="/platforms/">Choose a Platform</a>
+      <a href="/compare/">Compare Platforms</a>
+      <a href="/costs/">Check Costs</a>
+      <a href="/safety/">Hire Safely</a>
+      <a href="/problems/">Solve a Problem</a>
+      <a href="/guides/">Guides</a>
+      <a href="/templates/">Templates</a>
+      <a href="/tools/">Tools</a>
+      <a href="/resources/">Resources</a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="wrap page-hero-inner">
+
+    <div class="eyebrow">Check the warning signs before you hire</div>
+
+    <h1>Freelancer Red Flag Checker</h1>
+
+    <p>
+      Mark the warning signs you are seeing and get a practical risk score with
+      suggested checks before you fund the project.
+    </p>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Live tool</div>
+        <h2>What looks wrong?</h2>
+      </div>
+
+      <p>
+        Not every warning sign means someone is dishonest. The point is to
+        identify where additional verification or tighter project structure is needed.
+      </p>
+    </div>
+
+    <div class="flag-tool">
+
+      <div class="flag-list">
+
+        <div class="flag-group">
+          <h3>Payment & agreement</h3>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="18" data-type="payment">
+            <span class="flag-copy">
+              <strong>Requests full payment upfront</strong>
+              <small>No staged delivery, milestone structure or defined acceptance process.</small>
+            </span>
+          </label>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="16" data-type="payment">
+            <span class="flag-copy">
+              <strong>Refuses a written scope</strong>
+              <small>Deliverables, revisions or deadlines stay vague even when asked directly.</small>
+            </span>
+          </label>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="12" data-type="payment">
+            <span class="flag-copy">
+              <strong>Pushes for payment outside the agreed channel</strong>
+              <small>Tries to change payment method or structure after terms were already discussed.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="flag-group">
+          <h3>Portfolio & identity</h3>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="18" data-type="identity">
+            <span class="flag-copy">
+              <strong>Portfolio work cannot be verified</strong>
+              <small>Claims ownership of work but cannot explain process, role or project details.</small>
+            </span>
+          </label>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="14" data-type="identity">
+            <span class="flag-copy">
+              <strong>Profile details conflict</strong>
+              <small>Names, locations, employment history or work samples do not line up.</small>
+            </span>
+          </label>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="10" data-type="identity">
+            <span class="flag-copy">
+              <strong>Reviews look unusually repetitive or generic</strong>
+              <small>Feedback lacks project-specific detail or appears copied across multiple reviews.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="flag-group">
+          <h3>Communication & delivery</h3>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="10" data-type="communication">
+            <span class="flag-copy">
+              <strong>Avoids direct questions</strong>
+              <small>Answers around scope, timeline, technical capability or availability.</small>
+            </span>
+          </label>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="9" data-type="communication">
+            <span class="flag-copy">
+              <strong>Creates artificial urgency</strong>
+              <small>Pressures you to pay immediately before basic project details are settled.</small>
+            </span>
+          </label>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="8" data-type="communication">
+            <span class="flag-copy">
+              <strong>Promises everything without tradeoffs</strong>
+              <small>No questions, no constraints, no uncertainty and no pushback on unrealistic scope.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="flag-group">
+          <h3>Project control</h3>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="12" data-type="control">
+            <span class="flag-copy">
+              <strong>Will not define revision limits</strong>
+              <small>The project has no clear boundary between included work and additional work.</small>
+            </span>
+          </label>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="14" data-type="control">
+            <span class="flag-copy">
+              <strong>Source files or credentials are unclear</strong>
+              <small>Ownership, handoff or access expectations are not defined before work starts.</small>
+            </span>
+          </label>
+
+          <label class="flag-item">
+            <input type="checkbox" data-weight="9" data-type="control">
+            <span class="flag-copy">
+              <strong>Deadline claims seem unrealistic</strong>
+              <small>Very fast delivery is promised without discussion of scope, dependencies or review time.</small>
+            </span>
+          </label>
+        </div>
+
+      </div>
+
+      <div class="flag-results">
+
+        <div class="eyebrow">Risk score</div>
+
+        <div class="risk-score" id="risk-score">0</div>
+
+        <div class="risk-label" id="risk-label">Low risk</div>
+
+        <div class="risk-bar">
+          <div class="risk-bar-fill" id="risk-bar-fill"></div>
+        </div>
+
+        <div class="risk-summary" id="risk-summary">
+          No major warning signs selected. Continue normal due diligence before hiring.
+        </div>
+
+        <div class="risk-actions">
+          <h3>Suggested next steps</h3>
+          <ul id="risk-actions">
+            <li>Verify work samples and role-specific capability.</li>
+            <li>Define scope, deadlines, revisions and payment terms in writing.</li>
+          </ul>
+        </div>
+
+        <button class="reset-flags" id="reset-flags" type="button">
+          Reset checker
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="flag-note">
+      This tool is a planning aid, not a fraud detector. A high score means the
+      agreement deserves more verification and tighter controls; it does not prove
+      that a freelancer is dishonest.
+    </div>
+
+    <div class="trustless-risk" id="trustless-risk" hidden>
+      <div class="eyebrow">Payment or agreement risk detected</div>
+
+      <h3>Structure the deal before sending money.</h3>
+
+      <p>
+        When the concern involves payment, milestones or unclear delivery rules,
+        escrow can reduce reliance on informal promises. Trustless Network is built
+        around structured freelance agreements and XRP escrow.
+      </p>
+
+      <a href="https://trustlessnetwork.app/" target="_blank" rel="noopener">
+        Explore Trustless Network →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">Verify the weak point</div>
+        <h2>Use the score to decide what to check next.</h2>
+      </div>
+
+      <p>
+        The right response depends on what triggered the score: portfolio,
+        payment, communication or project-control problems.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/safety/freelancer-red-flags/">Freelancer Red Flags →</a>
+      <a href="/safety/how-to-verify-a-freelancer/">How to Verify a Freelancer →</a>
+      <a href="/safety/fake-portfolios/">Fake Freelancer Portfolios →</a>
+      <a href="/safety/fake-reviews/">Fake Freelance Reviews →</a>
+      <a href="/safety/payment-scams/">Freelance Payment Scams →</a>
+      <a href="/guides/how-to-interview-freelancers/">How to Interview Freelancers →</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <h2>Structure the project after vetting.</h2>
+
+      <p>
+        Once the freelancer checks out, turn the project into clear money,
+        milestones and deliverables.
+      </p>
+    </div>
+
+    <div class="text-list">
+      <a href="/tools/">Project Budget Calculator →</a>
+      <a href="/tools/freelancer-rate-converter/">Freelancer Rate Converter →</a>
+      <a href="/tools/milestone-planner/">Milestone Planner →</a>
+      <a href="/tools/platform-fee-calculator/">Platform Fee Calculator →</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>Freelance Hiring Hub</div>
+    <div>Better freelance decisions.</div>
+  </div>
+</footer>
+
+<script src="/assets/js/hub.js"></script>
+
+<script>
+(function(){
+
+  const checks = Array.from(
+    document.querySelectorAll('.flag-item input[type="checkbox"]')
+  );
+
+  const scoreOut = document.getElementById("risk-score");
+  const labelOut = document.getElementById("risk-label");
+  const bar = document.getElementById("risk-bar-fill");
+  const summary = document.getElementById("risk-summary");
+  const actions = document.getElementById("risk-actions");
+  const reset = document.getElementById("reset-flags");
+  const trustless = document.getElementById("trustless-risk");
+
+  const maxScore = checks.reduce(
+    (sum, el) => sum + Number(el.dataset.weight || 0),
+    0
+  );
+
+  function getSelectedTypes(){
+    const types = new Set();
+
+    checks.forEach(el => {
+      if(el.checked){
+        types.add(el.dataset.type);
+      }
+    });
+
+    return types;
+  }
+
+  function getRisk(score){
+
+    if(score >= 60){
+      return {
+        label:"Severe risk",
+        summary:"Multiple high-value warning signs are present. Do not treat this as a routine hire until identity, scope, ownership and payment conditions are independently verified."
+      };
+    }
+
+    if(score >= 35){
+      return {
+        label:"High risk",
+        summary:"Several warning signs are stacking together. Tighten verification and project controls before committing significant money."
+      };
+    }
+
+    if(score >= 15){
+      return {
+        label:"Moderate risk",
+        summary:"There are enough warning signs to justify additional checks before funding or expanding the project."
+      };
+    }
+
+    return {
+      label:"Low risk",
+      summary:"Few significant warning signs are selected. Continue normal due diligence and define the project clearly before hiring."
+    };
+  }
+
+  function buildActions(score, types){
+
+    const list = [];
+
+    if(types.has("identity")){
+      list.push("Verify portfolio ownership, work history and project-specific claims.");
+    }
+
+    if(types.has("payment")){
+      list.push("Avoid sending full payment before scope, milestones and acceptance conditions are defined.");
+    }
+
+    if(types.has("communication")){
+      list.push("Ask direct questions about timeline, availability, process and likely tradeoffs.");
+    }
+
+    if(types.has("control")){
+      list.push("Define revisions, source-file ownership, credentials and final handoff requirements.");
+    }
+
+    if(score >= 35){
+      list.push("Consider a smaller paid test project before committing the full budget.");
+    }
+
+    if(score >= 60){
+      list.push("Pause the hire until major inconsistencies are resolved.");
+    }
+
+    if(!list.length){
+      list.push("Verify work samples and role-specific capability.");
+      list.push("Define scope, deadlines, revisions and payment terms in writing.");
+    }
+
+    return list;
+  }
+
+  function update(){
+
+    let score = 0;
+
+    checks.forEach(el => {
+      if(el.checked){
+        score += Number(el.dataset.weight || 0);
+      }
+    });
+
+    const capped = Math.min(score,100);
+    const types = getSelectedTypes();
+    const risk = getRisk(capped);
+    const next = buildActions(capped, types);
+
+    scoreOut.textContent = capped;
+    labelOut.textContent = risk.label;
+    summary.textContent = risk.summary;
+    bar.style.width = Math.min((score / maxScore) * 100,100) + "%";
+
+    actions.innerHTML = next
+      .map(item => "<li>" + item + "</li>")
+      .join("");
+
+    trustless.hidden = !types.has("payment");
+  }
+
+  checks.forEach(el => el.addEventListener("change", update));
+
+  reset.addEventListener("click", function(){
+    checks.forEach(el => {
+      el.checked = false;
+    });
+
+    update();
+  });
+
+  update();
+
+})();
+</script>
+
+</body>
+</html>
