@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.freelancehiringhub.com"
+        }
+      ],
+      "destination": "https://freelancehiringhub.com/$1",
+      "permanent": true
+    }
+  ]
+}
